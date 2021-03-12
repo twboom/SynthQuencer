@@ -26,11 +26,17 @@ h1.header {
 
 main {
     display: flex;
-    width: 100%;
+    width: 80%;
+    margin-left: 10%;
+    justify-content: flex-end;
 }
 
 div#sequencer {
-    justify-content: end;
+    padding: 4px;
+    background-color: #323242;
+    border: hidden;
+    border-radius: 8px;
+    filter: drop-shadow(0 0 10px #121212);
 }
 
 button.tile {
