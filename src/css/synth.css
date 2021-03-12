@@ -5,10 +5,10 @@
 
     --background: #22222e;
 
-    --isPlaying: #b6b6b6;
+    --isPlaying: #4b4b4b;
 
-    --sine-color: #5f1491;  
-    --sine-active: #891dd1;
+    --sine-color: #431761;  
+    --sine-active: #9c1cf1;
     --sine-border: #c423d9
 }
 
@@ -24,8 +24,13 @@ h1.header {
     letter-spacing: 8px;
 }
 
-div#frame {
-    text-align: center;
+main {
+    display: flex;
+    width: 100%;
+}
+
+div#sequencer {
+    justify-content: end;
 }
 
 button.tile {
@@ -39,24 +44,24 @@ button.tile {
     margin: 4px;
 }
 
-button.tile[wave=sine] {
+button.tile[data-wave=sine] {
     border-color: var(--sine-border);
 }
 
-button.tile[wave=sine][activated=false] {
+button.tile[data-wave=sine][data-activated=false] {
     outline: none;
     background-color: var(--sine-color);
 }
 
-button.tile[wave=sine][activated=true] {
+button.tile[data-wave=sine][data-activated=true] {
     outline: none;
     background-color: var(--sine-active);
 }
 
-button.tile[isplaying=true][activated=false] {
+button.tile[data-isplaying=true][data-activated=false] {
     background-color: var(--isPlaying);
 }
 
-button.tile[isplaying=true][activated=true] {
+button.tile[data-isplaying=true][data-activated=true] {
     background-color: white;
 }
