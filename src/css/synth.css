@@ -1,1 +1,62 @@
- 
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+:root {
+    --size: 24px;
+
+    --background: #22222e;
+
+    --isPlaying: #b6b6b6;
+
+    --sine-color: #5f1491;  
+    --sine-active: #891dd1;
+    --sine-border: #c423d9
+}
+
+body {
+    background-color: var(--background);
+}
+
+h1.header {
+    font-family: 'Bebas Neue';
+    color: white;
+    text-align: center;
+    font-size: 64px;
+    letter-spacing: 8px;
+}
+
+div#frame {
+    text-align: center;
+}
+
+button.tile {
+    all: unset;
+    width: var(--size);
+    height: var(--size);
+    outline: none;
+    border: solid;
+    border-width: 2px;
+    border-radius: 8px;
+    margin: 4px;
+}
+
+button.tile[wave=sine] {
+    border-color: var(--sine-border);
+}
+
+button.tile[wave=sine][activated=false] {
+    outline: none;
+    background-color: var(--sine-color);
+}
+
+button.tile[wave=sine][activated=true] {
+    outline: none;
+    background-color: var(--sine-active);
+}
+
+button.tile[isplaying=true][activated=false] {
+    background-color: var(--isPlaying);
+}
+
+button.tile[isplaying=true][activated=true] {
+    background-color: white;
+}
