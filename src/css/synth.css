@@ -11,6 +11,15 @@
 
     --sine-color: #431761;  
     --sine-active: #9c1cf1;
+
+    --square-color: #756d08;
+    --square-active: #e0cf04;
+
+    --saw-color: #18226e;
+    --saw-active: #283cd4;
+
+    --triangle-color: #106e14;
+    --triangle-active: #1eeb25;
 }
 
 body {
@@ -29,8 +38,20 @@ main {
     display: flex;
     width: 80%;
     margin-left: 10%;
-    justify-content: flex-end;
+    justify-content: center;
 }
+
+main > div {
+    margin: 16px;
+}
+
+/* Controls */
+
+button.controls {
+
+}
+
+/* Sequencer */
 
 div#sequencer {
     padding: 4px;
@@ -51,19 +72,61 @@ button.tile {
     margin: 4px;
 }
 
+/*sine*/
 button.tile[data-wave=sine] {
     border-color: var(--sine-active);
 }
 
 button.tile[data-wave=sine][data-activated=false] {
-    outline: none;
     background-color: var(--sine-color);
 }
 
 button.tile[data-wave=sine][data-activated=true] {
-    outline: none;
     background-color: var(--sine-active);
 }
+
+/*square*/
+button.tile[data-wave=square] {
+    border-color: var(--square-active);
+}
+
+button.tile[data-wave=square][data-activated=false] {
+    background-color: var(--square-color);
+}
+
+button.tile[data-wave=square][data-activated=true] {
+    background-color: var(--square-active);
+}
+
+
+/*sawtooth*/
+button.tile[data-wave=sawtooth] {
+    border-color: var(--saw-active);
+}
+
+button.tile[data-wave=sawtooth][data-activated=false] {
+    background-color: var(--saw-color);
+}
+
+button.tile[data-wave=sawtooth][data-activated=true] {
+    background-color: var(--saw-active);
+}
+
+/*triangle*/
+button.tile[data-wave=triangle] {
+    border-color: var(--triangle-active);
+}
+
+button.tile[data-wave=triangle][data-activated=false] {
+    background-color: var(--triangle-color);
+}
+
+button.tile[data-wave=triangle][data-activated=true] {
+    background-color: var(--triangle-active);
+}
+
+
+/*common*/
 
 button.tile[data-isplaying=true][data-activated=false] {
     background-color: var(--isPlaying);
@@ -72,3 +135,4 @@ button.tile[data-isplaying=true][data-activated=false] {
 button.tile[data-isplaying=true][data-activated=true] {
     background-color: white;
 }
+
