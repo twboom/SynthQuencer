@@ -1,3 +1,3 @@
 const sq = synthquencer;
 
-sq.frame.sine()
+sq.frame.create('sine')

@@ -33,7 +33,7 @@ synthquencer.tile = class {
 }
 
 synthquencer.frame = []
-synthquencer.frame.sine = function() {
+synthquencer.frame.create = function(wave) {
     const frame = document.getElementById('frame')
     const notes = synthquencer.config.notes;
     const steps = synthquencer.config.steps;
@@ -41,7 +41,7 @@ synthquencer.frame.sine = function() {
         const step = document.createElement('div')
         for (let x = 0; x < notes; x++) {
             const note = synthquencer.config.startNote + x
-            const tile = new synthquencer.tile('sine', note, i)
+            const tile = new synthquencer.tile(wave, note, i)
             tile.create(step)
         }
         document.getElementById('sequencer').appendChild(step)
