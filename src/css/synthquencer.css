@@ -35,13 +35,13 @@ h1.header {
     letter-spacing: 8px;
 }
 
-main {
+div#main {
     display: flex;
     width: 80%;
     margin-left: 10%;
     justify-content: center;
 }
 
-main > div {
+div#main > div {
     margin: 16px;
 }

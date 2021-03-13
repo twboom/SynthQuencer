@@ -18,24 +18,26 @@
         <h1 class="header">SynthQuencer</h1>
     </header>
     <main>
-        <!--All the controls-->
-        <div id="controls">
-            <div id="direct-controls" class="control-panel">
-                <div>
-                    <button id="toggle" class="controls">Toggle</button>
+        <div id="main">
+            <!--All the controls-->
+            <div id="controls">
+                <div id="direct-controls" class="control-panel">
+                    <div>
+                        <button id="toggle" class="controls">Toggle</button>
+                    </div>
+                    <div>
+                        <p>Speed: <span class="speed display"></span></p>
+                        <input class="control" type="range" name="speed" id="speed" min="0" max="1000" step="1" value="100" style="direction: rtl;">
+                    </div>
                 </div>
-                <div>
-                    <p>Speed: <span class="speed display"></span></p>
-                    <input class="control" type="range" name="speed" id="speed" min="0" max="1000" step="1" value="100" style="direction: rtl;">
-                </div>
-            </div>
-            <!--Buttons for opening modals-->
-            <div id="modals">
+                <!--Buttons for opening modals-->
+                <div id="modals">
 
+                </div>
             </div>
+            <!--All the grids-->
+            <div id="sequencer"></div>
         </div>
-        <!--All the grids-->
-        <div id="sequencer"></div>
         <!--Modals-->
     </main>
     <!--Scripts that require page to be loaded-->
