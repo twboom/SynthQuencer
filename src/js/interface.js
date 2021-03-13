@@ -10,6 +10,18 @@ synthquencer.interface.update = function(evt) {
     display.innerHTML = input.value
 }
 
+synthquencer.interface.init = function() {
+    document.querySelectorAll('span.display').forEach(item => {
+        const label = item.classList[0];
+        const display = document.querySelector('span.' + label);
+        const input = document.querySelector('input#' + label);
+        const target = synthquencer.utility.getTarget(label)
+        const value = target[label]
+        display.innerHTML = value;
+        input.value = value
+    })
+}
+
 document.querySelectorAll('input.control').forEach(item => {
     item.addEventListener('mouseup', synthquencer.interface.update)
 })
