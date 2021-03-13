@@ -4,6 +4,8 @@
     --size: 24px;
 
     --background: #22222e;
+    --panel-background: #323242;
+    --panel-shadow: drop-shadow(0 0 10px #121212);
 
     --isPlaying: #4b4b4b;
 
@@ -32,10 +34,10 @@ main {
 
 div#sequencer {
     padding: 4px;
-    background-color: #323242;
+    background-color: var(--panel-background);
     border: hidden;
     border-radius: 8px;
-    filter: drop-shadow(0 0 10px #121212);
+    filter: var(--panel-shadow);
 }
 
 button.tile {
