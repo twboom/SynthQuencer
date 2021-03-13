@@ -22,3 +22,26 @@
     --triangle-color: #106e14;
     --triangle-active: #1eeb25;
 }
+
+body {
+    background-color: var(--background);
+}
+
+h1.header {
+    font-family: 'Bebas Neue';
+    color: white;
+    text-align: center;
+    font-size: 64px;
+    letter-spacing: 8px;
+}
+
+main {
+    display: flex;
+    width: 80%;
+    margin-left: 10%;
+    justify-content: center;
+}
+
+main > div {
+    margin: 16px;
+}

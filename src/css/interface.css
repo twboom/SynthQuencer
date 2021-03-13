@@ -1,0 +1,23 @@
+/* Controls */
+
+div#controls {
+    background-color: var(--panel-background);
+    padding: 16px;
+    border: hidden;
+    border-radius: 8px;
+    filter: var(--panel-shadow);
+    min-width: 20%;
+    text-align: center;
+}
+
+button.controls {
+    outline: none;
+    margin-bottom: 4px;
+}
+
+p {
+    color: white;
+    font-family: 'Open Sans';
+    margin: 0;
+}
+
