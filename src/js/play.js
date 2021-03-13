@@ -9,6 +9,7 @@ synthquencer.sound = function(note, wave) {
     gainNode.connect(interface.destination);
     oscillator.start(0);
     oscillator.stop(interface.currentTime + 0.5)
+    synthquencer.stats.stats.played++
 }
 
 synthquencer.playRow = function(synth, step) {
