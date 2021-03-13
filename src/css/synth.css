@@ -48,7 +48,7 @@ main > div {
 /* Controls */
 
 button.controls {
-
+    outline: none;
 }
 
 /* Sequencer */
