@@ -11,8 +11,8 @@ synthquencer.sound = function(note, wave) {
     oscillator.stop(interface.currentTime + 0.5)
 }
 
-synthquencer.playRow = function(step) {
-    const row = document.querySelectorAll(`button.tile[data-step="${step}"][data-activated=true]`)
+synthquencer.playRow = function(synth, step) {
+    const row = document.querySelectorAll(`div#synth-${synth} button.tile[data-step="${step}"][data-activated=true]`)
     if (row.length === 0) { return }
     const wave = row[0].getAttribute('data-wave')
     for (let i = 0; i < row.length; i++) {
@@ -21,14 +21,14 @@ synthquencer.playRow = function(step) {
     }
 }
 
-synthquencer.run = function() {
+synthquencer.run = function(synth) {
     let clock;
     let thisRow = 0
     let lastRow;
     clock = setInterval(_ => {
-        synthquencer.playRow(thisRow)
+        synthquencer.playRow(synth, thisRow)
         {
-            const row = document.querySelectorAll(`button.tile[data-step="${thisRow}"]`)
+            const row = document.querySelectorAll(`div#synth-${synth} button.tile[data-step="${thisRow}"]`)
             for (let i = 0; i < row.length; i++) {
                 row[i].setAttribute('data-isplaying', true)
             }

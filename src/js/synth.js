@@ -32,18 +32,36 @@ synthquencer.tile = class {
     }
 }
 
+synthquencer.synth = class {
+    constructor(wave, notes, steps) {
+        this.wave = wave;
+        this.notes = notes;
+        this.steps = steps
+        this.id = synthquencer.synths.length
+    }
+
+    create(parent) {
+        const wave = this.wave
+        const notes = this.notes;
+        const steps = this.steps;
+        for (let i = 0; i < steps; i++) {
+            const step = document.createElement('div')
+            for (let x = 0; x < notes; x++) {
+                const note = synthquencer.config.startNote + x
+                const tile = new synthquencer.tile(wave, note, i)
+                tile.create(step)
+            }
+            document.querySelector(`div#synth-${this.id}`).appendChild(step)
+        }
+    }
+}
+
 synthquencer.frame = []
 synthquencer.frame.create = function(wave) {
-    const frame = document.getElementById('frame')
-    const notes = synthquencer.config.notes;
-    const steps = synthquencer.config.steps;
-    for (let i = 0; i < steps; i++) {
-        const step = document.createElement('div')
-        for (let x = 0; x < notes; x++) {
-            const note = synthquencer.config.startNote + x
-            const tile = new synthquencer.tile(wave, note, i)
-            tile.create(step)
-        }
-        document.getElementById('sequencer').appendChild(step)
-    }
+    const frame = document.createElement('div')
+    frame.setAttribute('id', `synth-${synthquencer.synths.length}`)
+    document.querySelector('div#sequencer').appendChild(frame)
+    const synth = new synthquencer.synth(wave, 16, 16)
+    synth.create()
+    synthquencer.synths.push(synth)
 }

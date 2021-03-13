@@ -145,4 +145,3 @@ button.tile[data-isplaying=true][data-activated=false] {
 button.tile[data-isplaying=true][data-activated=true] {
     background-color: white;
 }
-
