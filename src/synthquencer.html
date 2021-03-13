@@ -19,12 +19,17 @@
     </header>
     <main>
         <div id="controls">
-            <div>
-                <button id="toggle" class="controls">Toggle</button>
+            <div id="direct-controls" class="control-panel">
+                <div>
+                    <button id="toggle" class="controls">Toggle</button>
+                </div>
+                <div>
+                    <p>Speed: <span class="speed display"></span></p>
+                    <input class="control" type="range" name="speed" id="speed" min="0" max="1000" step="1" value="100" style="direction: rtl;">
+                </div>
             </div>
-            <div>
-                <p>Speed: <span class="speed display"></span></p>
-                <input class="control" type="range" name="bpm" id="speed" min="0" max="1000" step="1" value="100" style="direction: rtl;">
+            <div id="modals">
+                
             </div>
         </div>
         <div id="sequencer"></div>

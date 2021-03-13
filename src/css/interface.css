@@ -1,6 +1,10 @@
 /* Controls */
 
 div#controls {
+    height: fit-content;
+}
+
+div.control-panel {
     background-color: var(--panel-background);
     padding: 16px;
     border: hidden;
