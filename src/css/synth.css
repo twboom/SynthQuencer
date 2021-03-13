@@ -9,7 +9,6 @@
 
     --sine-color: #431761;  
     --sine-active: #9c1cf1;
-    --sine-border: #c423d9
 }
 
 body {
@@ -51,7 +50,7 @@ button.tile {
 }
 
 button.tile[data-wave=sine] {
-    border-color: var(--sine-border);
+    border-color: var(--sine-active);
 }
 
 button.tile[data-wave=sine][data-activated=false] {
