@@ -40,7 +40,7 @@ synthquencer.synth = class {
         this.id = synthquencer.synths.length
     }
 
-    create(parent) {
+    create() {
         const wave = this.wave
         const notes = this.notes;
         const steps = this.steps;

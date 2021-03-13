@@ -21,26 +21,44 @@ synthquencer.playRow = function(synth, step) {
     }
 }
 
-synthquencer.run = function(synth) {
-    let clock;
-    let thisRow = 0
-    let lastRow;
-    clock = setInterval(_ => {
-        synthquencer.playRow(synth, thisRow)
+synthquencer.tick = function(synth, step) {
+    lastStep = step - 1;
+    if (step === 0) { lastStep = 15 };
+    synthquencer.playRow(synth, step)
         {
-            const row = document.querySelectorAll(`div#synth-${synth} button.tile[data-step="${thisRow}"]`)
+            const row = document.querySelectorAll(`button.tile[data-step="${step}"]`)
             for (let i = 0; i < row.length; i++) {
                 row[i].setAttribute('data-isplaying', true)
             }
         }
         {
-            const row = document.querySelectorAll(`button.tile[data-step="${lastRow}"]`)
+            const row = document.querySelectorAll(`button.tile[data-step="${lastStep}"]`)
             for (let i = 0; i < row.length; i++) {
                 row[i].setAttribute('data-isplaying', false)
             }
         }
-        lastRow = thisRow
-        thisRow += 1
-        if (thisRow == 16) { thisRow = 0}
-    }, synthquencer.config.speed)
 }
+
+synthquencer.deactivate = function() {
+    clearInterval(synthquencer.clock);
+    document.querySelectorAll('button.tile[data-isplaying=true]').forEach(item => {
+        item.setAttribute('data-isplaying', false)
+    })
+    synthquencer.state.active = false;
+};
+
+synthquencer.toggle = function() {
+    let step = 0;
+    if (synthquencer.state.active) {
+        synthquencer.deactivate()
+        return
+    }
+    synthquencer.state.active = true
+    synthquencer.clock = setInterval(_ => {
+        for (let i = 0; i < synthquencer.synths.length; i++) {
+            synthquencer.tick(i, step);
+        };
+        step += 1;
+        if (step == 16) { step = 0 };
+    }, synthquencer.config.speed);
+};
