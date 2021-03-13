@@ -4,7 +4,7 @@ synthquencer.config = {
     'startNote': 60,
     'notes': 16,
     'steps': 16,
-    'speed': 10,
+    'speed': 500,
     'tuning': 440
 }
 

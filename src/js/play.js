@@ -48,5 +48,5 @@ synthquencer.run = function() {
         lastRow = thisRow
         thisRow += 1
         if (thisRow == 16) { thisRow = 0}
-    }, 100)
+    }, synthquencer.config.speed)
 }
