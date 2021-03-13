@@ -79,6 +79,7 @@ button.tile {
     border-width: 2px;
     border-radius: 8px;
     margin: 4px;
+    cursor: pointer;
 }
 
 /*sine*/
