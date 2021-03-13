@@ -47,6 +47,15 @@ main > div {
 
 /* Controls */
 
+div#controls {
+    background-color: var(--panel-background);
+    padding: 4px;
+    border: hidden;
+    border-radius: 8px;
+    filter: var(--panel-shadow);
+    min-width: 20%;
+}
+
 button.controls {
     outline: none;
 }
