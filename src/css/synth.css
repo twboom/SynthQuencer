@@ -1,27 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
-
-:root {
-    --size: 24px;
-
-    --background: #22222e;
-    --panel-background: #323242;
-    --panel-shadow: drop-shadow(0 0 10px #121212);
-
-    --isPlaying: #4b4b4b;
-
-    --sine-color: #431761;  
-    --sine-active: #9c1cf1;
-
-    --square-color: #501c1c;
-    --square-active: #e00404;
-
-    --saw-color: #18226e;
-    --saw-active: #283cd4;
-
-    --triangle-color: #106e14;
-    --triangle-active: #1eeb25;
-}
-
 body {
     background-color: var(--background);
 }
