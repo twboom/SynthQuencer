@@ -18,6 +18,7 @@ button.tile {
     border-radius: 8px;
     margin: 4px;
     cursor: pointer;
+    transition: 0.1s;
 }
 
 /*sine*/
