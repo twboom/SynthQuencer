@@ -1,7 +1,6 @@
 synthquencer.interface = [];
 
 synthquencer.interface.update = function(evt) {
-    console.log(evt)
     const input = evt.target;
     const display = document.querySelector(`span.${input.id}.display`)
     const target = synthquencer.utility.getTarget(input.id)
@@ -23,12 +22,13 @@ synthquencer.interface.init = function() {
 }
 
 document.querySelectorAll('input.control').forEach(item => {
-    item.addEventListener('mouseup', synthquencer.interface.update)
+    item.addEventListener('input', synthquencer.interface.update)
 })
 
 // Toggle button
 document.querySelector('button#toggle.controls').addEventListener('click', _ => {
-    for (let i = 0; i < synthquencer.synths.length; i++) {
-        synthquencer.toggle()
-    }
+    const button = document.querySelector('button#toggle.controls')
+    if (synthquencer.state.active) { button.innerHTML = 'Start' }
+    else { button.innerHTML = 'Stop' }
+    synthquencer.toggle()
 })

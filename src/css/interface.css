@@ -41,7 +41,7 @@ button#toggle {
 }
 
 button#toggle:hover {
-    background-color: var(--background);
+    background-color: var(--isPlaying);
     width: 80%;
 }
 
