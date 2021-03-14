@@ -52,5 +52,10 @@ p.header {
 }
 
 a.header {
-    color: white;
+    color: #ffffff;
+    transition: 0.5s;
+}
+
+a.header:hover {
+    color: #8c24ed;
 }
