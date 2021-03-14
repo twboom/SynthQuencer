@@ -18,7 +18,7 @@ h1.header {
 
 p.header {
     font-family: 'Bebas Neue';
-    font-size: 32px;
+    font-size: 24px;
 }
 
 a.header {
@@ -27,15 +27,29 @@ a.header {
 
 main {
     color: white;
-    width: 70%;
-    margin-left: 15%;
+    width: 50%;
+    margin-left: 25%;
+    background-color: #323242;
+    padding: 32px;
+    border: hidden;
+    border-radius: 16px;
+    filter: drop-shadow(0 0 10px #121212);;
+}
+
+hr {
+    margin: 8px;
+    margin-top: 32px;
+    margin-bottom: 32px;
 }
 
 h1 {
     font-family: 'Bebas Neue';
     letter-spacing: 2px;
+    font-size: 32px;
+    margin: 0;
 }
 
 p {
     font-family: 'Open Sans';
+    font-size: 16px;
 }
