@@ -5,26 +5,6 @@ body {
     background-color: #22222e;
 }
 
-header {
-    font-family: 'Bebas Neue';
-    color: white;
-    text-align: center;
-}
-
-h1.header {
-    font-size: 64px;
-    letter-spacing: 8px;
-}
-
-p.header {
-    font-family: 'Bebas Neue';
-    font-size: 24px;
-}
-
-a.header {
-    color: white;
-}
-
 main {
     color: white;
     width: 50%;
@@ -52,4 +32,25 @@ h1 {
 p {
     font-family: 'Open Sans';
     font-size: 16px;
+}
+
+header {
+    font-family: 'Bebas Neue';
+    color: white;
+    text-align: center;
+}
+
+h1.header {
+    font-size: 64px;
+    letter-spacing: 8px;
+    margin-top: 64px;
+}
+
+p.header {
+    font-family: 'Bebas Neue';
+    font-size: 24px;
+}
+
+a.header {
+    color: white;
 }
