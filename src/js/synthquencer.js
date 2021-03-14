@@ -5,7 +5,8 @@ synthquencer.config = { // Configurable settings
     'notes': 16, // Number of notes in step
     'steps': 16, // The number of steps
     'speed': 100, // Interval between steps, in ms
-    'tuning': 440 // Tuning of A4, in Hz
+    'tuning': 440, // Tuning of A4, in Hz
+    'transposition': 0 // Transpose all the grids, in octaves
 }
 
 synthquencer.state = { // States of SynthQuencer

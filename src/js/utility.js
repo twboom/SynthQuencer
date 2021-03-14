@@ -11,8 +11,9 @@ synthquencer.utility.getTarget = function(prop) {
 }
 
 synthquencer.utility.getFrequency = function(midiNote) {
-    note = midiNote - 68
-    frequency = synthquencer.config.tuning * 2 ** (note / 12)
+    const note = midiNote - 68
+    const transposed = note + (12 * synthquencer.config.transposition)
+    const frequency = synthquencer.config.tuning * 2 ** (transposed / 12)
     return frequency
 }
 

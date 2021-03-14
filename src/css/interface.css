@@ -25,3 +25,64 @@ p {
     margin: 0;
 }
 
+button#toggle {
+    appearance: none;
+    -webkit-appearance: none;
+    background-color: var(--handle-color);
+    font-family: 'Open Sans';
+    border: hidden;
+    border-radius: 8px;
+    width: 50%;
+    color: white;
+    padding: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+button#toggle:hover {
+    background-color: var(--background);
+    width: 80%;
+}
+
+button#toggle:active {
+    background-color: white;
+    color: black;
+}
+
+input[type=range] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 8px;
+    background: #ffffff;
+    border: hidden;
+    border-radius: 8px;
+    outline: none;
+    opacity: 0.5;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+input[type=range]:hover {
+    opacity: 1;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: var(--handle-color);
+    cursor: w-resize;
+}
+
+input[type=range]::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: var(--handle-color);
+    outline: none;
+    cursor: w-resize;
+}
