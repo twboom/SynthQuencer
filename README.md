@@ -9,4 +9,4 @@ SynthQuencer is not finished yet, but I doubt it will ever be... This is still a
 ## Releases
 The releases can be found in the Release section on GitHub. A collection of release files can be found [here](https://github.com/twboom/Code/tree/main/SynthQuencer/releases).
 
-The website always has the latest *release* not the latest commit on the master branch. If you want to check precisely which version is published, please check the [publish branch](https://github.com/twboom/SynthQuencer/tree/publish) or [the differences between publish and main](https://github.com/twboom/SynthQuencer/compare/publish)
+The website always has the latest *release* not the latest commit on the master branch. If you want to check precisely which version is published, please check the [publish branch](https://github.com/twboom/SynthQuencer/tree/publish) or [the differences between publish and main](https://github.com/twboom/SynthQuencer/compare/publish...main)
