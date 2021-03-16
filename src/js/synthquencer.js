@@ -7,14 +7,15 @@ synthquencer.config = { // Configurable settings
     'speed': 100, // Interval between steps, in ms
     'tuning': 440, // Tuning of A4, in Hz
     'transposition': 0 // Transpose all the grids, in octaves
-}
+};
 
 synthquencer.state = { // States of SynthQuencer
     'active': false
-}
+};
 
 synthquencer.targets = {
     'root': synthquencer.config
-}
+};
 
-synthquencer.synths = []
+synthquencer.synths = [];
+synthquencer.tiles = [];
