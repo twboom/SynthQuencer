@@ -1,5 +1,5 @@
-const interface = new AudioContext();
 synthquencer.sound = function(note, wave) {
+    const interface = synthquencer.interface;
     const oscillator = interface.createOscillator();
     oscillator.type = wave;
     oscillator.frequency.value = synthquencer.utility.getFrequency(note);
