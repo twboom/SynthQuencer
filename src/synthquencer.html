@@ -10,9 +10,11 @@
     <script src="js/synth.js"></script>
     <script src="js/play.js"></script>
     <script src="js/stats.js"></script>
+    <script src="js/prompt.js"></script>
     <link rel="stylesheet" href="css/synthquencer.css">
     <link rel="stylesheet" href="css/synth.css">
     <link rel="stylesheet" href="css/interface.css">
+    <link rel="stylesheet" href="css/prompt.css">
 </head>
 <body>
     <header>
@@ -37,6 +39,9 @@
                     <div>
                         <p>Transpose: <span class="transposition display"></span> octaves</p>
                         <input class="control" type="range" name="transposition" id="transposition" min="-4" max="4" step="1">
+                    </div>
+                    <div>
+                        <button id="reset-grid" class="controls">Reset</button>
                     </div>
                 </div>
                 <!--Buttons for opening modals-->

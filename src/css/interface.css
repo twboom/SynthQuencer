@@ -25,7 +25,7 @@ p {
     margin: 0;
 }
 
-button#toggle {
+button.controls {
     appearance: none;
     -webkit-appearance: none;
     background-color: var(--handle-color);
@@ -40,12 +40,12 @@ button#toggle {
     transition: 0.5s;
 }
 
-button#toggle:hover {
+button.controls:hover {
     background-color: var(--isPlaying);
     width: 80%;
 }
 
-button#toggle:active {
+button.controls:active {
     background-color: white;
     color: black;
 }
