@@ -1,6 +1,5 @@
 const interface = new AudioContext();
 synthquencer.sound = function(note, wave) {
-    console.log(note, wave);
     const oscillator = interface.createOscillator();
     oscillator.type = wave;
     oscillator.frequency.value = synthquencer.utility.getFrequency(note);
@@ -9,20 +8,16 @@ synthquencer.sound = function(note, wave) {
     oscillator.connect(gainNode);
     gainNode.connect(interface.destination);
     oscillator.start(0);
-    console.log(interface.currentTime);
     oscillator.stop(interface.currentTime + 0.5);
     synthquencer.stats.stats.played++
-    console.log(synthquencer.stats.stats.played)
 }
 
 synthquencer.playRow = function(synth, step) {
-    //console.count()
     const row = document.querySelectorAll(`div#synth-${synth} button.tile[data-step="${step}"][data-activated=true]`)
     if (row.length === 0) { return }
     const wave = row[0].getAttribute('data-wave')
     for (let i = 0; i < row.length; i++) {
         const note = (row[i].getAttribute('data-note'))
-        //console.log(note)
         synthquencer.sound(note, wave)
     }
 }
