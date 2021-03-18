@@ -6,3 +6,4 @@ if (session.wave === null) { session.wave = 'sine'}
 
 sq.frame.create(session.wave)
 sq.interface.init()
+sq.modal()
