@@ -33,3 +33,23 @@ document.querySelector('button#toggle.controls').addEventListener('click', _ => 
     else { button.innerHTML = 'Stop' }
     synthquencer.toggle()
 })
+
+// Reset grid button
+document.querySelector('button#reset-grid').addEventListener('click', _ => {
+    /*const state = synthquencer.prompt.new({
+        'title': 'Are you sure?',
+        'body': 'This action will clear your entire grid and is irreversible'
+    }, 'verify')*/
+
+    //console.log(`State: ${state}`)
+    state = true
+    if (state) {
+        synthquencer.frame.remove();
+        synthquencer.frame.create(session.wave);
+        console.log('Grid was cleared')
+    }
+
+    else {
+        console.log('Grid was not cleared')
+    }
+})

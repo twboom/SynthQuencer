@@ -54,6 +54,7 @@ synthquencer.synth = class {
         const steps = this.steps;
         for (let i = 0; i < steps; i++) {
             const step = document.createElement('div')
+            step.setAttribute('class', 'step')
             for (let x = 0; x < notes; x++) {
                 const note = synthquencer.config.startNote + x
                 const tile = new synthquencer.tile(wave, note, i)
@@ -69,10 +70,17 @@ synthquencer.frame = []
 synthquencer.frame.create = function(wave) {
     const frame = document.createElement('div')
     frame.setAttribute('id', `synth-${synthquencer.synths.length}`)
+    frame.setAttribute('class', 'synth')
     frame.addEventListener('mousedown', synthquencer.drag.start)
     frame.addEventListener('mouseup', synthquencer.drag.stop)
     document.querySelector('div#sequencer').appendChild(frame)
     const synth = new synthquencer.synth(wave, 16, 16)
     synth.create()
     synthquencer.synths.push(synth)
+}
+
+synthquencer.frame.remove = function() {
+    document.querySelectorAll('div.synth').forEach(item => {
+        item.remove()
+    })
 }
