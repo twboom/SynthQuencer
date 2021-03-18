@@ -39,7 +39,7 @@ synthquencer.prompt.verify = function(content) {
 
 synthquencer.prompt.close = function(evt) {
     const target = evt.target;
-    let state = target.classList[1]
+    let state = (target.classList[1])
     const prompt = document.querySelector('div.prompt#prompt-outer')
     switch (state) {
         case 'deny':
@@ -58,11 +58,12 @@ synthquencer.prompt.close = function(evt) {
 };
 
 synthquencer.prompt.new = function(content, mode) {
-    const prompt = synthquencer.prompt
     let response;
 
-    if (mode === undefined) { throw new Error('Unkown mode') }
-    if (mode === 'verify') { response = prompt.verify(content)}
+    if (mode === undefined) { throw new Error('Undefined mode') }
+    if (mode === 'verify') {
+        response = synthquencer.prompt.verify(content)
+    }
 
     console.log(response)
     return response
