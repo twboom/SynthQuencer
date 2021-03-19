@@ -1,14 +1,17 @@
 synthquencer.sound = function(note, wave) {
+    const envelope = synthquencer.envelope.envelope;
     const interface = synthquencer.interface;
     const oscillator = interface.createOscillator();
     oscillator.type = wave;
     oscillator.frequency.value = synthquencer.utility.getFrequency(note);
     const gainNode = interface.createGain();
-    gainNode.gain.exponentialRampToValueAtTime(0.00001, interface.currentTime + 1);
+    gainNode.gain.setValueAtTime(0,0);
+    gainNode.gain.exponentialRampToValueAtTime(1, envelope.attack)
+    gainNode.gain.exponentialRampToValueAtTime(envelope.sustain, interface.currentTime + envelope.decay)
+    gainNode.gain.exponentialRampToValueAtTime(0.00000000000000000001, interface.currentTime + envelope.decay + envelope.release);
     oscillator.connect(gainNode);
     gainNode.connect(interface.destination);
     oscillator.start(0);
-    oscillator.stop(interface.currentTime + 0.5);
     synthquencer.stats.stats.played++
 }
 
