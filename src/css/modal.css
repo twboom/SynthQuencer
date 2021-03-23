@@ -60,6 +60,8 @@ button.modalButton {
     cursor: pointer;
     transition: 0.5s;
     outline: none;
+    min-width: fit-content;
+    max-width: 80%;
 }
 
 button.modalButton:hover {
