@@ -3,7 +3,7 @@ synthquencer.envelope = [];
 synthquencer.envelope.envelope = {
     'attack': 0,
     'decay': 1,
-    'sustain': 0.0100000001,
+    'sustain': 0.01,
     'release': 1
 };
 

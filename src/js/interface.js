@@ -4,7 +4,7 @@ synthquencer.interface.update = function(evt) {
     const input = evt.target;
     const display = document.querySelector(`span.${input.id}.display`)
     const target = synthquencer.utility.getTarget(input.id)
-    target[input.id] = parseInt(input.value);
+    target[input.id] = parseFloat(input.value);
     if (display === null) { return }
     display.innerHTML = input.value
 }

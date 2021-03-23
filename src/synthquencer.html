@@ -62,19 +62,19 @@
             <h1 class="modalTitle">Envelope Editor</h1>
                 <div>
                     <p>Attack: <span class="attack display"></span></p>
-                    <input type="range" name="attack" id="attack" class="control">
+                    <input type="range" name="attack" id="attack" class="control" min="0" max="10">
                 </div>
                 <div>
                     <p>Decay: <span class="decay display"></span></p>
-                    <input type="range" name="decay" id="decay" class="control">
+                    <input type="range" name="decay" id="decay" class="control" min="0" max="10">
                 </div>
                 <div>
                     <p>Sustain: <span class="sustain display"></span></p>
-                    <input type="range" name="sustain" id="sustain" class="control">
+                    <input type="range" name="sustain" id="sustain" class="control" step="0.01" min="0" max="2">
                 </div>
                 <div>
                     <p>Release: <span class="release display"></span></p>
-                    <input type="range" name="release" id="release" class="control">
+                    <input type="range" name="release" id="release" class="control" min="0" max="10">
                 </div>
             <div class="modalButtonCloseContainer">
                 <button class="modalButton close envelope">Close</button>

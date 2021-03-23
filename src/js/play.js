@@ -11,7 +11,7 @@ synthquencer.sound = async function(note, wave) {
     let passedTime = interface.currentTime;
     gainNode.gain.exponentialRampToValueAtTime(1, envelope.attack);
     passedTime += envelope.attack;
-    gainNode.gain.exponentialRampToValueAtTime(envelope.sustain, passedTime + envelope.decay);
+    gainNode.gain.exponentialRampToValueAtTime(almostZero + envelope.sustain, passedTime + envelope.decay);
     passedTime += envelope.decay;
     gainNode.gain.exponentialRampToValueAtTime(almostZero, passedTime + envelope.release);
     oscillator.connect(gainNode);
