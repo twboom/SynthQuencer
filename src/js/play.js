@@ -9,7 +9,8 @@ synthquencer.sound = async function(note, wave) {
     gainNode.gain.setValueAtTime(0,0);
     console.log(`Playing ${note}, ${wave}: ${envelope.attack}, ${envelope.decay}, ${envelope.sustain}, ${envelope.release}`);
     let passedTime = interface.currentTime;
-    gainNode.gain.exponentialRampToValueAtTime(1, envelope.attack);
+    gainNode.gain.setValueAtTime(almostZero, interface.currentTime)
+    gainNode.gain.linearRampToValueAtTime(1, interface.currentTime + envelope.attack);
     passedTime += envelope.attack;
     gainNode.gain.exponentialRampToValueAtTime(almostZero + envelope.sustain, passedTime + envelope.decay);
     passedTime += envelope.decay;

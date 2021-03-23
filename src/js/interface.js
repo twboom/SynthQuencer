@@ -6,7 +6,8 @@ synthquencer.interface.update = function(evt) {
     const target = synthquencer.utility.getTarget(input.id)
     target[input.id] = parseFloat(input.value);
     if (display === null) { return }
-    display.innerHTML = input.value
+    display.innerHTML = input.value;
+    console.log(`Set ${input.id} to ${input.value}`)
 }
 
 synthquencer.interface.init = function() {
@@ -17,7 +18,7 @@ synthquencer.interface.init = function() {
         const target = synthquencer.utility.getTarget(label)
         const value = target[label]
         display.innerHTML = value;
-        input.value = value
+        input.value = value;
     })
 }
 
