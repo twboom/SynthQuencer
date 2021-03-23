@@ -50,14 +50,28 @@
                 </div>
                 <!--Buttons for opening modals-->
                 <div id="modals">
+                    <button class="modalButton open envelope">Envelope</button>
                 </div>
             </div>
             <!--All the grids-->
             <div id="sequencer"></div>
         </div>
     </main>
+    <div id="envelopeModal" class="modal">
+        <div class="modalContent">
+            <h1 class="modalTitle">Envelope Editor</h1>
+                <div>
+                    <p>Attack: <span class="attack display"></span></p>
+                    <input type="range" name="attack" id="attack" class="control">
+                </div>
+            <div class="modalButtonCloseContainer">
+                <button class="modalButton close envelope">Close</button>
+            </div>
+        </div>
+    </div>
     <!--Scripts that require page to be loaded-->
     <script src="js/interface.js"></script>
+    <script src="js/targets.js"></script>
     <script src="js/init.js"></script>
 </body>
 </html>
