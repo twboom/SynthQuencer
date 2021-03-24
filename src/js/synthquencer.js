@@ -14,6 +14,7 @@ synthquencer.config = { // Configurable settings
     'steps': 16, // The number of steps
     'speed': 100, // Interval between steps, in ms
     'tuning': 440, // Tuning of A4, in Hz
+    'volume': 0.5, // Master volume
     'transposition': 0, // Transpose all the grids, in octaves
     'defaultWave': 'sawtooth' // The default wave value when no wave is specified
 };
