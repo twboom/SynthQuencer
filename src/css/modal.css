@@ -1,0 +1,75 @@
+div#modals {
+    background-color: var(--panel-background);
+    padding: 16px;
+    border: hidden;
+    border-radius: 8px;
+    filter: var(--panel-shadow);
+    min-width: 20%;
+    text-align: center;
+    margin-top: 16px;
+}
+
+div.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(1px);
+    background-color: #000000;
+    background-color: #00000080; /* Black w/ opacity */
+}
+
+div.modalContent {
+    width: 50%;
+    margin: 10% auto;
+    background-color: var(--panel-background);
+    padding: 16px;
+    filter: var(--panel-shadow);
+    border: hidden;
+    border-radius: 16px;
+}
+
+h1.modalTitle {
+    text-align: center;
+    color: white;
+    font-family: 'Bebas Neue';
+    margin-top: 0;
+    letter-spacing: 2px;
+}
+
+div.modalButtonCloseContainer {
+    text-align: center;
+    margin: 16px;
+    margin-top: 32px;
+}
+
+button.modalButton {
+    appearance: none;
+    -webkit-appearance: none;
+    background-color: var(--handle-color);
+    font-family: 'Open Sans';
+    border: hidden;
+    border-radius: 8px;
+    width: 40%;
+    color: white;
+    padding: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.5s;
+    outline: none;
+    min-width: fit-content;
+    max-width: 80%;
+}
+
+button.modalButton:hover {
+    background-color: var(--isPlaying);
+    width: 80%;
+}
+
+button.modalButton:active {
+    background-color: white;
+    color: black;
+}

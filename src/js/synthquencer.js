@@ -13,9 +13,5 @@ synthquencer.state = { // States of SynthQuencer
     'active': false
 };
 
-synthquencer.targets = {
-    'root': synthquencer.config
-};
-
 synthquencer.synths = [];
 synthquencer.tiles = [];

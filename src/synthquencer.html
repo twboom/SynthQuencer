@@ -11,10 +11,14 @@
     <script src="js/play.js"></script>
     <script src="js/stats.js"></script>
     <script src="js/prompt.js"></script>
+    <script src="js/drag.js"></script>
+    <script src="js/modal.js"></script>
+    <script src="js/envelope.js"></script>
     <link rel="stylesheet" href="css/synthquencer.css">
     <link rel="stylesheet" href="css/synth.css">
     <link rel="stylesheet" href="css/interface.css">
     <link rel="stylesheet" href="css/prompt.css">
+    <link rel="stylesheet" href="css/modal.css">
 </head>
 <body>
     <header>
@@ -46,17 +50,40 @@
                 </div>
                 <!--Buttons for opening modals-->
                 <div id="modals">
-
+                    <button class="modalButton open envelope">Envelope</button>
                 </div>
             </div>
             <!--All the grids-->
             <div id="sequencer"></div>
         </div>
-        <!--Modals-->
     </main>
+    <div id="envelopeModal" class="modal">
+        <div class="modalContent">
+            <h1 class="modalTitle">Envelope Editor</h1>
+                <div>
+                    <p>Attack: <span class="attack display"></span> s</p>
+                    <input type="range" name="attack" id="attack" class="control" min="0" max="1" step="0.01">
+                </div>
+                <div>
+                    <p>Decay: <span class="decay display"></span> s</p>
+                    <input type="range" name="decay" id="decay" class="control" min="0" max="5" step="0.1">
+                </div>
+                <div>
+                    <p>Sustain: <span class="sustain display"></span> s</p>
+                    <input type="range" name="sustain" id="sustain" class="control" step="0.01" min="0" max="1">
+                </div>
+                <div>
+                    <p>Release: <span class="release display"></span> s</p>
+                    <input type="range" name="release" id="release" class="control" min="0" max="5" step="0.01">
+                </div>
+            <div class="modalButtonCloseContainer">
+                <button class="modalButton close envelope">Close</button>
+            </div>
+        </div>
+    </div>
     <!--Scripts that require page to be loaded-->
     <script src="js/interface.js"></script>
-    <script src="js/drag.js"></script>
+    <script src="js/targets.js"></script>
     <script src="js/init.js"></script>
 </body>
 </html>

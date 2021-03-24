@@ -4,9 +4,10 @@ synthquencer.interface.update = function(evt) {
     const input = evt.target;
     const display = document.querySelector(`span.${input.id}.display`)
     const target = synthquencer.utility.getTarget(input.id)
-    target[input.id] = parseInt(input.value);
+    target[input.id] = parseFloat(input.value);
     if (display === null) { return }
-    display.innerHTML = input.value
+    display.innerHTML = input.value;
+    console.log(`Set ${input.id} to ${input.value}`)
 }
 
 synthquencer.interface.init = function() {
@@ -17,7 +18,7 @@ synthquencer.interface.init = function() {
         const target = synthquencer.utility.getTarget(label)
         const value = target[label]
         display.innerHTML = value;
-        input.value = value
+        input.value = value;
     })
 }
 
@@ -36,13 +37,14 @@ document.querySelector('button#toggle.controls').addEventListener('click', _ => 
 
 // Reset grid button
 document.querySelector('button#reset-grid').addEventListener('click', _ => {
-    /*const state = synthquencer.prompt.new({
+    // Code beneath is currently not in use, but I'm keeping it in for later (hopefully)
+    /*
+    const state = synthquencer.prompt.new({
         'title': 'Are you sure?',
         'body': 'This action will clear your entire grid and is irreversible'
-    }, 'verify')*/
-
-    //console.log(`State: ${state}`)
-    state = true
+    }, 'verify')
+    */
+    state = confirm('Are you sure? /n This action will reset the entire grid and cannot be undone')
     if (state) {
         synthquencer.frame.remove();
         synthquencer.frame.create(session.wave);
