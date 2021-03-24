@@ -1,5 +1,6 @@
 synthquencer.hotkeys.config = {
     'Space': synthquencer.actions.toggle,
+    'Delete': synthquencer.actions.reset
 }
 
 synthquencer.hotkeys.init = function() {

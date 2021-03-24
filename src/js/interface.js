@@ -30,22 +30,4 @@ document.querySelectorAll('input.control').forEach(item => {
 document.querySelector('button#toggle.controls').addEventListener('click', synthquencer.actions.toggle)
 
 // Reset grid button
-document.querySelector('button#reset-grid').addEventListener('click', _ => {
-    // Code beneath is currently not in use, but I'm keeping it in for later (hopefully)
-    /*
-    const state = synthquencer.prompt.new({
-        'title': 'Are you sure?',
-        'body': 'This action will clear your entire grid and is irreversible'
-    }, 'verify')
-    */
-    state = confirm('Are you sure? /n This action will reset the entire grid and cannot be undone')
-    if (state) {
-        synthquencer.frame.remove();
-        synthquencer.frame.create(session.wave);
-        console.log('Grid was cleared')
-    }
-
-    else {
-        console.log('Grid was not cleared')
-    }
-})
+document.querySelector('button#reset-grid').addEventListener('click', synthquencer.actions.reset)
