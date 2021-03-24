@@ -1,15 +1,22 @@
-synthquencer.sound = function(note, wave) {
+synthquencer.sound = async function(note, wave) {
+    const almostZero = 0.00000000000000000001
+    const envelope = synthquencer.envelope.envelope;
     const interface = synthquencer.interface;
     const oscillator = interface.createOscillator();
     oscillator.type = wave;
     oscillator.frequency.value = synthquencer.utility.getFrequency(note);
     const gainNode = interface.createGain();
-    gainNode.gain.exponentialRampToValueAtTime(0.00001, interface.currentTime + 1);
+    gainNode.gain.setValueAtTime(0,0);
+    console.log(`Playing ${note}, ${wave}: ${envelope.attack}, ${envelope.decay}, ${envelope.sustain}, ${envelope.release}`);
+    gainNode.gain.setValueAtTime(almostZero, interface.currentTime)
+    gainNode.gain.linearRampToValueAtTime(1, interface.currentTime + envelope.attack);
+    gainNode.gain.exponentialRampToValueAtTime(almostZero + envelope.sustain, interface.currentTime + envelope.attack + envelope.decay);
+    gainNode.gain.exponentialRampToValueAtTime(almostZero, interface.currentTime + envelope.attack + envelope.decay + (envelope.release * 2));
     oscillator.connect(gainNode);
     gainNode.connect(interface.destination);
     oscillator.start(0);
-    oscillator.stop(interface.currentTime + 0.5);
-    synthquencer.stats.stats.played++
+    oscillator.stop(interface.currentTime + envelope.attack + envelope.decay + (envelope.release * 2))
+    synthquencer.stats.stats.played++;
 }
 
 synthquencer.playRow = function(synth, step) {
