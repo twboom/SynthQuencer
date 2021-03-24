@@ -88,5 +88,6 @@ synthquencer.killSound = function() {
     for (let i = 0; i < synthquencer.notes.length; i++) {
         synthquencer.notes[i].stop()
     }
+    synthquencer.notes = [];
     console.log(`Succesfully killed all the sounds`)
 }

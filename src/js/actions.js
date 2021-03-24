@@ -2,6 +2,7 @@ synthquencer.actions = [];
 
 // Toggle action
 synthquencer.actions.toggle = function() {
+    synthquencer.notes = [];
     console.log(`Toggling SynthQuencer`)
     synthquencer.interface = new AudioContext();
     const button = document.querySelector('button#toggle.controls')
