@@ -48,6 +48,18 @@ synthquencer.tick = function(synth, step) {
         }
 }
 
+synthquencer.start = function() {
+    let step = 0;
+    synthquencer.state.active = true
+    synthquencer.clock = setInterval(_ => {
+        for (let i = 0; i < synthquencer.synths.length; i++) {
+            synthquencer.tick(i, step);
+        };
+        step += 1;
+        if (step == 16) { step = 0 };
+    }, synthquencer.config.speed);
+}
+
 synthquencer.deactivate = function() {
     clearInterval(synthquencer.clock);
     document.querySelectorAll('button.tile[data-isplaying=true]').forEach(item => {
@@ -57,17 +69,15 @@ synthquencer.deactivate = function() {
 };
 
 synthquencer.toggle = function() {
-    let step = 0;
     if (synthquencer.state.active) {
         synthquencer.deactivate()
         return
     }
-    synthquencer.state.active = true
-    synthquencer.clock = setInterval(_ => {
-        for (let i = 0; i < synthquencer.synths.length; i++) {
-            synthquencer.tick(i, step);
-        };
-        step += 1;
-        if (step == 16) { step = 0 };
-    }, synthquencer.config.speed);
+    synthquencer.start()
 };
+
+synthquencer.updateTickspeed = function() {
+    if (!synthquencer.state.active) { return }
+    synthquencer.deactivate();
+    synthquencer.start();
+}

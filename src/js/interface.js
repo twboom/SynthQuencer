@@ -26,6 +26,8 @@ document.querySelectorAll('input.control').forEach(item => {
     item.addEventListener('input', synthquencer.interface.update)
 })
 
+document.querySelector('input[type=range].control#speed').addEventListener('mouseup', synthquencer.updateTickspeed)
+
 // Toggle button
 document.querySelector('button#toggle.controls').addEventListener('click', synthquencer.actions.toggle)
 
