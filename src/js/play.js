@@ -16,7 +16,9 @@ synthquencer.sound = async function(note, wave) {
     oscillator.connect(gainNode);
     gainNode.connect(interface.destination);
     oscillator.start(0);
-    oscillator.stop(interface.currentTime + envelope.attack + envelope.decay + (envelope.release * 2))
+    const passTime = interface.currentTime + envelope.attack + envelope.decay + (envelope.release * 2)
+    oscillator.stop(passTime)
+    synthquencer.notes.push(oscillator)
     synthquencer.stats.stats.played++;
 }
 
@@ -80,4 +82,11 @@ synthquencer.updateTickspeed = function() {
     if (!synthquencer.state.active) { return }
     synthquencer.deactivate();
     synthquencer.start();
+}
+
+synthquencer.killSound = function() {
+    for (let i = 0; i < synthquencer.notes.length; i++) {
+        synthquencer.notes[i].stop()
+    }
+    console.log(`Succesfully killed all the sounds`)
 }

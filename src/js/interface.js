@@ -26,6 +26,7 @@ document.querySelectorAll('input.control').forEach(item => {
     item.addEventListener('input', synthquencer.interface.update)
 })
 
+// Speed slider
 document.querySelector('input[type=range].control#speed').addEventListener('mouseup', synthquencer.updateTickspeed)
 
 // Toggle button
@@ -33,3 +34,6 @@ document.querySelector('button#toggle.controls').addEventListener('click', synth
 
 // Reset grid button
 document.querySelector('button#reset-grid').addEventListener('click', synthquencer.actions.reset)
+
+// Kill sound button
+document.querySelector('button#kill-sound').addEventListener('click', synthquencer.killSound)

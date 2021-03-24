@@ -2,6 +2,7 @@ let synthquencer = [];
 synthquencer.hotkeys = [];
 synthquencer.synths = [];
 synthquencer.tiles = [];
+synthquencer.notes = [];
 
 synthquencer.state = { // States that SynthQuencer can have
     'active': false
