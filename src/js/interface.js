@@ -27,13 +27,7 @@ document.querySelectorAll('input.control').forEach(item => {
 })
 
 // Toggle button
-document.querySelector('button#toggle.controls').addEventListener('click', _ => {
-    synthquencer.interface = new AudioContext();
-    const button = document.querySelector('button#toggle.controls')
-    if (synthquencer.state.active) { button.innerHTML = 'Start' }
-    else { button.innerHTML = 'Stop' }
-    synthquencer.toggle()
-})
+document.querySelector('button#toggle.controls').addEventListener('click', synthquencer.actions.toggle)
 
 // Reset grid button
 document.querySelector('button#reset-grid').addEventListener('click', _ => {
