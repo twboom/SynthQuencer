@@ -45,7 +45,7 @@ Just play around with it and you'll figure it out!
 When pressing and holding, it'll flip the state (activated or not) of the buttons you cross on your path. Try drawing a little heart!
 
 # Envelope (ADSR)
-Text
+The envelope is currently the most powerfull tool for customizing your sound! It consist of a normal ADSR.
 
 ## Attack (Slider)
 Text
