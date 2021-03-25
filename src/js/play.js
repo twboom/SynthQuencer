@@ -1,5 +1,6 @@
 synthquencer.sound = async function(note, wave) {
-    const almostZero = 0.00000000000000000001
+    const almostZero = 0.00000000000000000001;
+    const volume = synthquencer.config.volume;
     const envelope = synthquencer.envelope.envelope;
     const interface = synthquencer.interface;
     const oscillator = interface.createOscillator();
@@ -7,15 +8,17 @@ synthquencer.sound = async function(note, wave) {
     oscillator.frequency.value = synthquencer.utility.getFrequency(note);
     const gainNode = interface.createGain();
     gainNode.gain.setValueAtTime(0,0);
-    console.log(`Playing ${note}, ${wave}: ${envelope.attack}, ${envelope.decay}, ${envelope.sustain}, ${envelope.release}`);
+    console.log(`Playing ${note}, ${wave} | A: ${envelope.attack}, D: ${envelope.decay}, S: ${envelope.sustain}, R: ${envelope.release} | Volume ${volume}`);
     gainNode.gain.setValueAtTime(almostZero, interface.currentTime)
-    gainNode.gain.linearRampToValueAtTime(1, interface.currentTime + envelope.attack);
-    gainNode.gain.exponentialRampToValueAtTime(almostZero + envelope.sustain, interface.currentTime + envelope.attack + envelope.decay);
+    gainNode.gain.linearRampToValueAtTime(1 * volume, interface.currentTime + envelope.attack);
+    gainNode.gain.exponentialRampToValueAtTime(almostZero + envelope.sustain * volume, interface.currentTime + envelope.attack + envelope.decay);
     gainNode.gain.exponentialRampToValueAtTime(almostZero, interface.currentTime + envelope.attack + envelope.decay + (envelope.release * 2));
     oscillator.connect(gainNode);
     gainNode.connect(interface.destination);
     oscillator.start(0);
-    oscillator.stop(interface.currentTime + envelope.attack + envelope.decay + (envelope.release * 2))
+    const passTime = interface.currentTime + envelope.attack + envelope.decay + (envelope.release * 2)
+    oscillator.stop(passTime)
+    synthquencer.notes.push(oscillator)
     synthquencer.stats.stats.played++;
 }
 
@@ -47,6 +50,18 @@ synthquencer.tick = function(synth, step) {
         }
 }
 
+synthquencer.start = function() {
+    let step = 0;
+    synthquencer.state.active = true
+    synthquencer.clock = setInterval(_ => {
+        for (let i = 0; i < synthquencer.synths.length; i++) {
+            synthquencer.tick(i, step);
+        };
+        step += 1;
+        if (step == 16) { step = 0 };
+    }, synthquencer.config.speed);
+}
+
 synthquencer.deactivate = function() {
     clearInterval(synthquencer.clock);
     document.querySelectorAll('button.tile[data-isplaying=true]').forEach(item => {
@@ -56,17 +71,23 @@ synthquencer.deactivate = function() {
 };
 
 synthquencer.toggle = function() {
-    let step = 0;
     if (synthquencer.state.active) {
         synthquencer.deactivate()
         return
     }
-    synthquencer.state.active = true
-    synthquencer.clock = setInterval(_ => {
-        for (let i = 0; i < synthquencer.synths.length; i++) {
-            synthquencer.tick(i, step);
-        };
-        step += 1;
-        if (step == 16) { step = 0 };
-    }, synthquencer.config.speed);
+    synthquencer.start()
 };
+
+synthquencer.updateTickspeed = function() {
+    if (!synthquencer.state.active) { return }
+    synthquencer.deactivate();
+    synthquencer.start();
+}
+
+synthquencer.killSound = function() {
+    for (let i = 0; i < synthquencer.notes.length; i++) {
+        synthquencer.notes[i].stop()
+    }
+    synthquencer.notes = [];
+    console.log(`Succesfully killed all the sounds`)
+}
