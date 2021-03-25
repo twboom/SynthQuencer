@@ -1,6 +1,6 @@
 /*
 =============================================
-This code comes from an unreleased version of JSPMD, you can find it here: https://github.com/twboom/jspmd
+This code comes from an unreleased version of JSPMD, you can find JSPMD here: https://github.com/twboom/jspmd
 =============================================
 */
 
@@ -8,7 +8,7 @@ let jspmd = [];
 
 // Prepare Markdown
 jspmd.prepare = function(md) {
-    return md.split(/\r?\m/);
+    return md.split(/\r?\n/);
 }
 
 // Print the MD to the page
@@ -16,7 +16,12 @@ jspmd.print = function(content, targetQuery) {
     const parent = document.createElement('div')
     for (let i = 0; i < content.length; i++) {
         const line = document.createElement(content[i].tag);
-        line.innerHTML;
+        if (content[i].tag === 'hr') {
+        }
+        else {
+            line.innerHTML = content[i].content
+        }
+        parent.appendChild(line)
     }
     document.querySelector(targetQuery).appendChild(parent)
 }
@@ -31,10 +36,12 @@ jspmd.parse = function(pmd) {
         const mdTag = line.split(/ +/g)[0];
 
         let htmlTag;
+        let lineContent = line.slice(mdTag.length)
 
         switch(mdTag) {
             case '#':
                 htmlTag = 'h1';
+                if (i > 0) { content.push({'tag': 'hr'}) }
                 break;
 
             case '##':
@@ -58,12 +65,13 @@ jspmd.parse = function(pmd) {
                 break;
             
             default:
-                htmlTag = 'p'
+                htmlTag = 'p';
+                lineContent = line;
+                break;
         }
-
         content.push({
             'tag': htmlTag,
-            'content': line.slice(mdTag.length)
+            'content': lineContent
         })
     }
     return content
