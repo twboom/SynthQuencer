@@ -15,16 +15,20 @@ The speed slider is somewhat of a special slider because when you slide it, it's
 The volume slider is a value between 0 and 1. This will multiply with the gain at different points (see Envelope). This will update for every note that is played after adjusting it's value.
 
 ## Transpose (Slider)
-Text
+The transposition slider allows you to pitch the entire grid up or down 4 octaves. That makes it's range -4 octaves to +4 octaves.
+
+You might use this feature when you want to make a bass line or a higher pitched line. 
 
 ## Tuning (Slider)
-Text
+The tuning slider is quite an advanced feature and most people will probably never use it. It adjusts the frequency of the note A4. It's value range is 432hz to 440hz (standard).
+
+We've implemented this feature, because we had to create an configuration element for it and it can be quite handy to help you think 'out of the box'.
 
 ## Reset (Button)
-Text
+The reset button will reset your entire grid. It will not reset your settings!
 
 ## Kill (Button)
-Text
+The kill button will stop all the sounds that are playing.
 
 # Grid
 Text about the grid
