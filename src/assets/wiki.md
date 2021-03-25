@@ -37,7 +37,12 @@ The reset button will reset your entire grid. It will not reset your settings!
 The kill button will stop all the sounds that are playing.
 
 # Grid
-Text about the grid
+The grid is ofcourse the main element of SynthQuencer! You can look at it as a coordinate system with every square (button) being a coordinate. Time is represented on the vertical axis, the note height on the horizontal axis.
+
+Just play around with it and you'll figure it out!
+
+## Drawing
+When pressing and holding, it'll flip the state (activated or not) of the buttons you cross on your path. Try drawing a little heart!
 
 # Envelope (ADSR)
 Text
