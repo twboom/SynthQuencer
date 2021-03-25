@@ -1,4 +1,10 @@
 # General info
+SynthQuencer is a entirly web-based grid sequencer that allows everyone to have a go at music. No, you won't compose entire songs on this (or you take this statement as a challenge), but it will be fun to play with nonetheless! With every feature we are implementing, we are trying to make it easy and understandable, but still as powerfull as possible.
+
+## For what can I use it?
+For everything that you want! Just drawing some shapes and trying how it sounds or just comming up with inspiration! It's all up to you!
+
+PS: For the teachers (or other people), you can use it as an tool for introduction in music lessons!
 
 # Main controls
 In the main controls (on the left), you can find several buttons and sliders.
