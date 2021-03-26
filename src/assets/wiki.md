@@ -47,17 +47,26 @@ When pressing and holding, it'll flip the state (activated or not) of the button
 # Envelope (ADSR)
 The envelope is currently the most powerfull tool for customizing your sound! It consist of a normal ADSR.
 
+ADSR stands for Attack, Decay, Sustain and Release. All are explained below!
+
+All of this might sound and look complicated, because it is! You can play around with the values and hear what sounds good!
+
+PS: We're working on an visual and interactive way of displaying this information, that will be in a future release!
+
 ## Attack (Slider)
-Text
+Attack is the value that adjusts the ramp of the notes when they start (a bit like a fade in). It's value is in seconds.
 
 ## Decay (Slider)
-Text
+Decay is the time it takes the gain to go to the level of sustain
 
 ## Sustain (Slider)
-Text
+Sustain is the only non-time value in here. It sets the value the decay should go to.
 
 ## Release (Slider)
-Text
+Release is the value it takes to reach zero gain after the notes is at it's sustain level.
 
 # Advanced
-Text about advanced features
+SynthQuencer also has some features that are not fully implemented yet. These features might be changed any time! This page will ofcourse be updated accordingly!
+
+## Different wave types
+You are able to set the wave type by adding '?wave={wave}' to the end of the URL. Your available options are: 'sine', 'triangle', 'sawtooth' (default), 'square'. 
