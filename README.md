@@ -1,7 +1,10 @@
 # SynthQuencer
 SynthQuencer is a sequencer that is easy to use and does not require the user to have any knowledge of coding or music, just press some buttons and see what happens!
 
-SynthQuencer is not finished yet, but I doubt it will ever be... This is still a hobby project and definitely not my only focus. If I sometime stop working on it, but you encounter a bug or want a feature, open up an issue, I'll still see it (probably) and I might start working on it again!
+SynthQuencer is not finished yet, but we doubt it will ever be! Maybe the development will slow down or even stop. That might be because we can't think of newer features! If you want to help it start up again, consider opening a issue with an feature request or a bug report!
+
+## Information
+If you want to know more about how to use SynthQuencer, please take a look at our [wiki](https://synthquencer.netlify.app/wiki)!
 
 ## Status
 **Version:** V2.0.0
