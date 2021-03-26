@@ -3,6 +3,11 @@ synthquencer.hotkeys = [];
 synthquencer.synths = [];
 synthquencer.tiles = [];
 synthquencer.notes = [];
+synthquencer.snippets = [];
+
+fetch('assets/snippets.json')
+    .then(response => response.json())
+    .then(data => synthquencer.snippets.data = data)
 
 synthquencer.state = { // States that SynthQuencer can have
     'active': false
