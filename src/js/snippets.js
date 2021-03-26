@@ -1,8 +1,13 @@
+synthquencer.snippets.config = {
+    'hoverTimer': 2000
+}
+
 synthquencer.snippets.show = function(el) {
     const snippetID = el.target.id;
     const snippet = synthquencer.snippets.data[snippetID]
     if (snippet === undefined) { return }
     synthquencer.snippets.createSnippet(snippet)
+    console.log(`Shown ${el.target.id} snippet`)
 }
 
 synthquencer.snippets.createSnippet = function(snippet) {
@@ -22,9 +27,18 @@ synthquencer.snippets.createSnippet = function(snippet) {
 synthquencer.snippets.init = function() {
     document.querySelectorAll('.snippet').forEach(item => {
         let timer;
+        let shown = false;
         item.addEventListener('mouseover', evt => {
-            timer = setTimeout(synthquencer.snippets.show, 2000, evt)
+            timer = setTimeout(evt => {
+                synthquencer.snippets.show(evt);
+                shown = true;
+            }, synthquencer.snippets.config.hoverTimer, evt)
         })
-        item.addEventListener('mouseout', _ => { clearTimeout(timer) })
+        item.addEventListener('mouseout', _ => {
+            clearTimeout(timer);
+            if (shown) {
+                document.querySelector('div.snippet-container').remove()
+            }
+        })
     })
 }
