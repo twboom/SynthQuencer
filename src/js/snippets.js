@@ -2,25 +2,21 @@ synthquencer.snippets.show = function(el) {
     const snippetID = el.target.id;
     const snippet = synthquencer.snippets.data[snippetID]
     if (snippet === undefined) { return }
-    console.log(snippet)
-    synthquencer.snippets.display(snippet)
+    synthquencer.snippets.createSnippet(snippet)
 }
 
-synthquencer.snippets.display = function(snippet) {
+synthquencer.snippets.createSnippet = function(snippet) {
     const div = document.createElement('div')
     div.setAttribute('class', 'snippet-container')
-    
     const title = document.createElement('h1')
     title.setAttribute('class', 'snippet-title')
     title.innerHTML = snippet.title
-
     const text = document.createElement('p')
     text.setAttribute('class', 'snippet-text')
     text.innerHTML = snippet.text
-
     div.appendChild(title)
     div.appendChild(text)
-    document.querySelector('main').appendChild(div)
+    document.body.appendChild(div)
 }
 
 synthquencer.snippets.init = function() {

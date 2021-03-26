@@ -1,0 +1,16 @@
+div.snippet-container {
+    position: fixed;
+    bottom: 5%;
+    right: 5%;
+    background-color: var(--panel-background);
+    filter: var(--panel-shadow);
+    border: hidden;
+    border-radius: 8px;
+    padding: 16px;
+}
+
+h1.snippet-title {
+    font-family: 'Bebas Neue';
+    color: white;
+    margin-top: 0;
+}
