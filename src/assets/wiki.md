@@ -65,8 +65,17 @@ Sustain is the only non-time value in here. It sets the value the decay should g
 ## Release (Slider)
 Release is the value it takes to reach zero gain after the notes is at it's sustain level.
 
+# Keyboard Hotkeys
+We have implemented some keyboard hotkeys.
+
+If you want more hotkeys, please open up a feature request in our Issues section on GitHub!
+
+## Hotkeys
+Space: play/stop
+Delete: reset grid
+
 # Advanced
 SynthQuencer also has some features that are not fully implemented yet. These features might be changed any time! This page will ofcourse be updated accordingly!
 
 ## Different wave types
-You are able to set the wave type by adding '?wave={wave}' to the end of the URL. Your available options are: 'sine', 'triangle', 'sawtooth' (default), 'square'. 
+You are able to set the wave type by adding '?wave={wave}' to the end of the URL. Your available options are: 'sine', 'triangle', 'sawtooth' (default), 'square'.
