@@ -7,7 +7,7 @@ SynthQuencer is not finished yet, but we doubt it will ever be! Maybe the develo
 If you want to know more about how to use SynthQuencer, please take a look at our [wiki](https://synthquencer.netlify.app/wiki)!
 
 ## Status
-**Version:** V2.0.0
+**Version:** V2.1.1
 
 ## Releases
 The releases can be found in the Release section on GitHub. A collection of release files can be found [here](https://github.com/twboom/Code/tree/main/SynthQuencer/releases).
