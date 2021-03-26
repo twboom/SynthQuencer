@@ -14,11 +14,13 @@
     <script src="js/drag.js"></script>
     <script src="js/modal.js"></script>
     <script src="js/envelope.js"></script>
+    <script src="js/snippets.js"></script>
     <link rel="stylesheet" href="css/synthquencer.css">
     <link rel="stylesheet" href="css/synth.css">
     <link rel="stylesheet" href="css/interface.css">
     <link rel="stylesheet" href="css/prompt.css">
     <link rel="stylesheet" href="css/modal.css">
+    <link rel="stylesheet" href="css/snippets.css">
 </head>
 <body>
     <header>
@@ -30,29 +32,29 @@
             <div id="controls">
                 <div id="direct-controls" class="control-panel">
                     <div>
-                        <button id="toggle" class="controls">Start</button>
+                        <button id="toggle" class="controls snippet">Start</button>
                     </div>
                     <div>
                         <p>Speed: <span class="speed display"></span> ms</p>
-                        <input class="control" type="range" name="speed" id="speed" min="0" max="1000" step="1" style="direction: rtl;">
+                        <input class="control snippet" type="range" name="speed" id="speed" min="0" max="1000" step="1" style="direction: rtl;">
                     </div>
                     <div>
                         <p>Volume: <span class="volume display"></span></p>
-                        <input class="control" type="range" name="volume" id="volume" min="0" max="1" step="0.1">
+                        <input class="control snippet" type="range" name="volume" id="volume" min="0" max="1" step="0.1">
                     </div>
                     <div>
                         <p>Transpose: <span class="transposition display"></span> oct</p>
-                        <input class="control" type="range" name="transposition" id="transposition" min="-4" max="4" step="1">
+                        <input class="control snippet" type="range" name="transposition" id="transposition" min="-4" max="4" step="1">
                     </div>
                     <div>
                         <p>Tuning: <span class="tuning display"></span>Hz</p>
-                        <input class="control" type="range" name="tuning" id="tuning" min="432" max="440">
+                        <input class="control snippet" type="range" name="tuning" id="tuning" min="432" max="440">
                     </div>
                     <div>
-                        <button id="reset-grid" class="controls">Reset</button>
+                        <button id="reset-grid" class="controls snippet">Reset</button>
                     </div>
                     <div>
-                        <button id="kill-sound" class="controls">Kill</button>
+                        <button id="kill-sound" class="controls snippet">Kill</button>
                     </div>
                 </div>
                 <!--Buttons for opening modals-->
@@ -69,19 +71,19 @@
             <h1 class="modalTitle">Envelope Editor</h1>
                 <div>
                     <p>Attack: <span class="attack display"></span> s</p>
-                    <input type="range" name="attack" id="attack" class="control" min="0" max="1" step="0.01">
+                    <input type="range" name="attack" id="attack" class="control snippet" min="0" max="1" step="0.01">
                 </div>
                 <div>
                     <p>Decay: <span class="decay display"></span> s</p>
-                    <input type="range" name="decay" id="decay" class="control" min="0" max="5" step="0.1">
+                    <input type="range" name="decay" id="decay" class="control snippet" min="0" max="5" step="0.1">
                 </div>
                 <div>
                     <p>Sustain: <span class="sustain display"></span></p>
-                    <input type="range" name="sustain" id="sustain" class="control" step="0.01" min="0" max="1">
+                    <input type="range" name="sustain" id="sustain" class="control snippet" step="0.01" min="0" max="1">
                 </div>
                 <div>
                     <p>Release: <span class="release display"></span> s</p>
-                    <input type="range" name="release" id="release" class="control" min="0" max="5" step="0.01">
+                    <input type="range" name="release" id="release" class="control snippet" min="0" max="5" step="0.01">
                 </div>
             <div class="modalButtonCloseContainer">
                 <button class="modalButton close envelope">Close</button>
