@@ -1,4 +1,5 @@
 div.snippet-container {
+    z-index: 100;
     position: fixed;
     bottom: 5%;
     right: 5%;
@@ -13,4 +14,5 @@ h1.snippet-title {
     font-family: 'Bebas Neue';
     color: white;
     margin-top: 0;
+    text-align: right;
 }
