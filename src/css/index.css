@@ -29,6 +29,43 @@ h1 {
     margin: 0;
 }
 
+h2 {
+    font-family: 'Bebas Neue';
+    letter-spacing: 1px;
+}
+
+h3 {
+    font-family: 'Bebas Neue';
+    letter-spacing: 1px;
+}
+
+h3 {
+    font-family: 'Bebas Neue';
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+
+h4 {
+    font-family: 'Bebas Neue';
+    font-style: italic;
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+
+h5 {
+    font-family: 'Open Sans';
+    font-style: italic;
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+
+h6 {
+    font-family: 'Open Sans';
+    font-style: oblique;
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+
 p {
     font-family: 'Open Sans';
     font-size: 16px;
