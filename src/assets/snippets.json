@@ -1,0 +1,50 @@
+{
+    "toggle": {
+        "title": "Start / Stop",
+        "text": "This button will start or stop SynthQuencer"
+    },
+    "speed": {
+        "title": "Speed",
+        "text": "The delay between two steps"
+    },
+    "volume": {
+        "title": "Volume",
+        "text": "Master volume for notes"
+    },
+    "transposition": {
+        "title": "Transpose",
+        "text": "Play notes higher or lower"
+    },
+    "tuning": {
+        "title": "Tuning",
+        "text": "Change the frequency of the note A4"
+    },
+    "reset-grid": {
+        "title": "Reset Grid",
+        "text": "Clear the entire grid"
+    },
+    "kill-sound": {
+        "title": "Kill Sound",
+        "text": "Stop all the sounds that are currently playing"
+    },
+    "envelope": {
+        "title": "Envelope",
+        "text": "Change the envelope (gain over time) of the synth!"
+    },
+    "attack": {
+        "title": "Attack",
+        "text": "Change the 'fade in' of the synth!"
+    },
+    "decay": {
+        "title": "Decay",
+        "text": "Change the time it takes the gain to go to the level of sustain"
+    },
+    "sustain": {
+        "title": "Sustain",
+        "text": "The value the decay goes to"
+    },
+    "release": {
+        "title": "Release",
+        "text": "'Fade out' after it has reached sustain"
+    }
+}
