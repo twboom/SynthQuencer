@@ -4,7 +4,7 @@ SynthQuencer is a sequencer that is easy to use and does not require the user to
 SynthQuencer is not finished yet, but we doubt it will ever be! Maybe the development will slow down or even stop. That might be because we can't think of newer features! If you want to help it start up again, consider opening a issue with an feature request or a bug report!
 
 ## Information
-If you want to know more about how to use SynthQuencer, please take a look at our [wiki](https://synthquencer.netlify.app/wiki)!
+If you want to know more about how to use SynthQuencer, please take a look at our [wiki](https://synthquencer.thijsboom.com/wiki)!
 
 ## Status
 **Version:** V3.1.0
