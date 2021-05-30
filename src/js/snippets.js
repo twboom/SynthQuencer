@@ -56,7 +56,7 @@ synthquencer.snippets.init = function() {
                     document.querySelector('div.snippet-container').remove()
                     shown = false
                 }
-            }, 100000)
+            }, 1000)
         })
     })
 }
