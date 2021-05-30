@@ -21,4 +21,4 @@ header {
 .header { margin: 0; }
 h1.header { font-size: 64px; }
 p.header { font-size: 32px; transition: 0.1s; transition-property: letter-spacing; }
-p.header:hover { letter-spacing: 4px; }
+p.header:hover { letter-spacing: 2px; }
