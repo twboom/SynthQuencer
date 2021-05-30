@@ -16,3 +16,11 @@ h1.snippet-title {
     margin-top: 0;
     text-align: right;
 }
+
+a.snippet-link {
+    color: white;
+}
+
+p.snippet-text {
+    text-align: right;
+}

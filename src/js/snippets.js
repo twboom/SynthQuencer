@@ -20,8 +20,16 @@ synthquencer.snippets.createSnippet = function(snippet) {
     const text = document.createElement('p')
     text.setAttribute('class', 'snippet-text')
     text.innerHTML = snippet.text
+    const linkContainer = document.createElement('p')
+    linkContainer.setAttribute('class', 'snippet-text')
+    const link = document.createElement('a')
+    link.setAttribute('href', `wiki.html#${snippet.link}`)
+    link.setAttribute('class', 'snippet-link')
+    link.innerText = 'Read more on the wiki!'
+    linkContainer.appendChild(link)
     div.appendChild(title)
     div.appendChild(text)
+    div.appendChild(linkContainer)
     document.body.appendChild(div)
 }
 
@@ -48,7 +56,7 @@ synthquencer.snippets.init = function() {
                     document.querySelector('div.snippet-container').remove()
                     shown = false
                 }
-            }, 1000)
+            }, 100000)
         })
     })
 }

@@ -28,6 +28,10 @@ jspmd.print = function(content, targetQuery) {
         parent.appendChild(line)
     }
     document.querySelector(targetQuery).appendChild(parent)
+
+    if (window.location.hash) {
+        document.getElementById(window.location.hash.replaceAll('#', '')).scrollIntoView()
+    }
 }
 
 // Parse prepared Markdown
