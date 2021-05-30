@@ -7,11 +7,25 @@
     <title>SynthQuencer</title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/utility.js"></script>
+    <script src="js/synth.js"></script>
 </head>
 <body>
     <header>
         <h1 class="header">SynthQuencer</h1>
         <p class="header">Making music easy</p>
     </header>
+
+    <main></main>
+
+    <script>
+        function demo() {
+            const myInterface = new AudioContext()
+            const myOsc = new Oscillator('sawtooth', 0, 0)
+            const oscOBJ = myOsc.osc({note: 70, velocity: 1}, myInterface)
+            oscOBJ.start()
+            oscOBJ.stop(1)
+        }
+    </script>
 </body>
 </html>
