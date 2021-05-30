@@ -19,7 +19,7 @@ synthquencer.actions.reset = function() {
         'body': 'This action will clear your entire grid and is irreversible'
     }, 'verify')
     */
-    state = confirm('Are you sure? /n This action will reset the entire grid and cannot be undone')
+    state = confirm('Are you sure?\nThis action will reset the entire grid and cannot be undone')
     if (state) {
         synthquencer.frame.remove();
         synthquencer.frame.create(session.wave);

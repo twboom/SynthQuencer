@@ -3,7 +3,7 @@ synthquencer.snippets.config = {
 }
 
 synthquencer.snippets.show = function(el) {
-    const snippetID = el.target.id;
+    const snippetID = synthquencer.snippets.last.target.id;
     const snippet = synthquencer.snippets.data[snippetID]
     if (snippet === undefined) { return false }
     synthquencer.snippets.createSnippet(snippet)
@@ -20,16 +20,28 @@ synthquencer.snippets.createSnippet = function(snippet) {
     const text = document.createElement('p')
     text.setAttribute('class', 'snippet-text')
     text.innerHTML = snippet.text
+    const linkContainer = document.createElement('p')
+    linkContainer.setAttribute('class', 'snippet-text')
+    const link = document.createElement('a')
+    link.setAttribute('href', `wiki.html#${snippet.link}`)
+    link.setAttribute('class', 'snippet-link')
+    link.innerText = 'Read more on the wiki!'
+    linkContainer.appendChild(link)
     div.appendChild(title)
     div.appendChild(text)
+    div.appendChild(linkContainer)
     document.body.appendChild(div)
 }
 
 synthquencer.snippets.init = function() {
+
+    document.addEventListener('keypress', console.log)
+
     document.querySelectorAll('.snippet').forEach(item => {
         let timer;
         let shown = false;
         item.addEventListener('mouseover', evt => {
+            synthquencer.snippets.last = evt;
             timer = setTimeout(evt => {
                 state = synthquencer.snippets.show(evt);
                 if (state) { shown = true }
@@ -38,9 +50,13 @@ synthquencer.snippets.init = function() {
         })
         item.addEventListener('mouseout', _ => {
             clearTimeout(timer);
-            if (shown) {
-                document.querySelector('div.snippet-container').remove()
-            }
+            timer = setTimeout(_ => {
+                if (shown) {
+                    console.log(shown)
+                    document.querySelector('div.snippet-container').remove()
+                    shown = false
+                }
+            }, 1000)
         })
     })
 }

@@ -4,10 +4,10 @@ SynthQuencer is a sequencer that is easy to use and does not require the user to
 SynthQuencer is not finished yet, but we doubt it will ever be! Maybe the development will slow down or even stop. That might be because we can't think of newer features! If you want to help it start up again, consider opening a issue with an feature request or a bug report!
 
 ## Information
-If you want to know more about how to use SynthQuencer, please take a look at our [wiki](https://synthquencer.netlify.app/wiki)!
+If you want to know more about how to use SynthQuencer, please take a look at our [wiki](https://synthquencer.thijsboom.com/wiki)!
 
 ## Status
-**Version:** V3.0.0
+**Version:** V3.2.0
 
 ## Releases
 The releases can be found in the Release section on GitHub. A collection of release files can be found [here](https://github.com/twboom/Code/tree/main/SynthQuencer/releases).

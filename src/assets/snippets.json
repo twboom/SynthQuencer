@@ -1,50 +1,62 @@
 {
     "toggle": {
         "title": "Start / Stop",
-        "text": "This button will start or stop SynthQuencer"
+        "text": "This button will start or stop SynthQuencer",
+        "link": "start-button"
     },
     "speed": {
         "title": "Speed",
-        "text": "The delay between two steps"
+        "text": "The delay between two steps",
+        "link": "speed-slider"
     },
     "volume": {
         "title": "Volume",
-        "text": "Master volume for notes"
+        "text": "Master volume for notes",
+        "link": "volume-slider"
     },
     "transposition": {
         "title": "Transpose",
-        "text": "Play notes higher or lower"
+        "text": "Play notes higher or lower",
+        "link": "transpose-slider"
     },
     "tuning": {
         "title": "Tuning",
-        "text": "Change the frequency of the note A4"
+        "text": "Change the frequency of the note A4",
+        "link": "tuning-slider"
     },
     "reset-grid": {
         "title": "Reset Grid",
-        "text": "Clear the entire grid"
+        "text": "Clear the entire grid",
+        "link": "reset-button"
     },
     "kill-sound": {
         "title": "Kill Sound",
-        "text": "Stop all the sounds that are currently playing"
+        "text": "Stop all the sounds that are currently playing",
+        "link": "kill-button"
     },
     "envelope": {
         "title": "Envelope",
-        "text": "Change the envelope (gain over time) of the synth!"
+        "text": "Change the envelope (gain over time) of the synth!",
+        "link": "envelope-adsr"
     },
     "attack": {
         "title": "Attack",
-        "text": "Change the 'fade in' of the synth!"
+        "text": "Change the 'fade in' of the synth!",
+        "link": "attack-slider"
     },
     "decay": {
         "title": "Decay",
-        "text": "Change the time it takes the gain to go to the level of sustain"
+        "text": "Change the time it takes the gain to go to the level of sustain",
+        "link": "decay-slider"
     },
     "sustain": {
         "title": "Sustain",
-        "text": "The value the decay goes to"
+        "text": "The value the decay goes to",
+        "link": "sustain-slider"
     },
     "release": {
         "title": "Release",
-        "text": "'Fade out' after it has reached sustain"
+        "text": "'Fade out' after it has reached sustain",
+        "link": "release-slider"
     }
 }
