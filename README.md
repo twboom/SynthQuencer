@@ -7,7 +7,7 @@ SynthQuencer is not finished yet, but we doubt it will ever be! Maybe the develo
 If you want to know more about how to use SynthQuencer, please take a look at our [wiki](https://synthquencer.thijsboom.com/wiki)!
 
 ## Status
-**Version:** V3.1.0
+**Version:** V3.2.0
 
 ## Releases
 The releases can be found in the Release section on GitHub. A collection of release files can be found [here](https://github.com/twboom/Code/tree/main/SynthQuencer/releases).
