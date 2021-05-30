@@ -45,3 +45,10 @@ class Oscillator {
         return osc
     }
 }
+
+// Envelope
+class Envelope {
+    
+    constructor() {}
+
+}
