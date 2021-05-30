@@ -1,6 +1,7 @@
 synthquencer.hotkeys.config = {
     'Space': synthquencer.actions.toggle,
-    'Delete': synthquencer.actions.reset
+    'Delete': synthquencer.actions.reset,
+    '/': synthquencer.snippets.show,
 }
 
 synthquencer.hotkeys.init = function() {
