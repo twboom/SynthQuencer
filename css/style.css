@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+:root {
+    --background: #22222e;
+    --panel-background: #323242;
+    --panel-shadow: drop-shadow(0 0 10px #121212);
+}
+
+body {
+    background-color: var(--background);
+}
+
+header {
+    text-align: center;
+    font-family: 'Bebas Neue';
+    color: white;
+    cursor: default;
+}
+
+.header { margin: 0; }
+h1.header { font-size: 64px; }
+p.header { font-size: 32px; transition: 0.1s; transition-property: letter-spacing; }
+p.header:hover { letter-spacing: 4px; }
