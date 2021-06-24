@@ -11,6 +11,10 @@ class Oscillator {
         this.wave = wave; // Availabe waves: sine, triangle, square, sawtooth
         this.transpose = transpose; // Transposition in semitones
         this.detune = detune; // Detune in cents
+        
+
+        // Utility code
+        this.connections = new Set();
 
     };
 
@@ -88,17 +92,34 @@ class Oscillator {
 
             case undefined:
                 console.error('No object to connect')
-                break;
+                return;
 
             default:
                 new Error('Invalid object')
-                break;
+                return;
 
-        }
+        };
 
-    }
+        this.connections.add(obj.obj)
 
-}
+    };
+
+    deconnect(connection) {
+
+        if (connection === 'ALL') {
+            this.connections.clear();
+        } else {
+            if (!this.connections.has(connection)) {
+                console.error(`Couldn't remove ${connection}, the connection ${connection} was not present`);
+                return
+            };
+
+            this.connections.delete(connection)
+        };
+
+    };
+
+};
 
 // Envelope
 class Envelope {
@@ -113,9 +134,9 @@ class Envelope {
         // Check if type is allowed
         if (!allowedTypes.includes(type.toUpperCase)) {
             
-            new Error('Invalid envelope type')
+            new Error('Invalid envelope type');
 
-        }
+        };
 
         this.obj = 'ENVELOPE' // Type declaration
         
