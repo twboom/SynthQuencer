@@ -22,9 +22,10 @@
         function demo() {
             const myInterface = new AudioContext()
             const myOsc = new Oscillator('sawtooth', 0, 0)
+            const myEnv = new Envelope({attack: 0, decay: 0, sustain: 1, release: 22}, 'EXPONENTIAL')
+            myOsc.connect(myEnv)
             const oscOBJ = myOsc.osc({note: 70, velocity: 1}, myInterface)
             oscOBJ.start()
-            oscOBJ.stop(1)
         }
     </script>
 </body>

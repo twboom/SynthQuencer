@@ -4,6 +4,9 @@ This file contains some utility functions
 
 const utility = [];
 
+// Almost zero for exponential ramps
+utility.zero = 0.00000000000000000001
+
 // MIDI note to frequency converter
 utility.midiToFrequency = (midi, transposition, tuning) => {
     if (transposition === undefined) { transposition = 0 };
