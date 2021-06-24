@@ -13,6 +13,23 @@ class Oscillator {
         this.detune = detune; // Detune in cents
 
     };
+
+    play(note, velocity) {
+        const intf = new AudioContext();
+        const oscOBJ = this.osc({note: note, velocity: velocity}, intf)
+        
+        let stopTime = intf.currentTime;
+        if (this.gainEnvelope !== undefined) {
+            const env = this.gainEnvelope;
+            stopTime += env.attack + env.decay + env.release;
+        } else {
+            stopTime += 1
+        };
+
+        oscOBJ.start();
+        oscOBJ.stop(stopTime)
+
+    }
     
     // Create an oscillator for a note that you can play
     // USAGE: osc(noteOBJ, intf).start()
