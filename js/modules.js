@@ -156,6 +156,39 @@ class Sequencer {
     
     constructor(notes, steps) {
 
+        // Container for sequencer
+        this.sequencer = document.createElement('div');
+        this.sequencer.classList = 'sequencer';
+
+        // Rows and notes
+        const rows = [];
+        const buttons = [];
+
+        for (let y = 0; y < steps; y++) {
+            
+            const row = document.createElement('div');
+
+            // Notes in a row
+            for (let x = 0; x < notes; x++) {
+
+                const btn = document.createElement('button');
+                btn.classList = 'sequencer-button';
+                row.appendChild(btn);
+                buttons.push(btn);
+
+            };
+
+            rows.push(row);
+            this.sequencer.appendChild(row);
+
+        };
+
+    };
+
+    create(target) {
+
+        target.appendChild(this.sequencer)
+
     }
 
-}
+};
