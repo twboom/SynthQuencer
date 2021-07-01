@@ -23,7 +23,7 @@
             const myOsc = new Oscillator('square', 0, 0)
             const myEnv = new Envelope({attack: 0, decay: 0, sustain: 1, release: 22}, 'EXPONENTIAL')
             myOsc.connect(myEnv)
-            const note = Math.round(Math.random() * 70)
+            const note = Math.round(Math.random() * 140)
             myOsc.play(note, 1)
         }
     </script>

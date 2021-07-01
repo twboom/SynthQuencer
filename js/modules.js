@@ -150,3 +150,12 @@ class Envelope {
     };
 
 };
+
+// Sequencer Grid
+class Sequencer {
+    
+    constructor(notes, steps) {
+
+    }
+
+}
