@@ -3,6 +3,9 @@ Following are all the parts of the synthesizer
 Might be used to build an modular synthesizer
 */
 
+
+/* Audio modules */
+
 // Oscillator
 class Oscillator {
 
@@ -150,6 +153,9 @@ class Envelope {
     };
 
 };
+
+
+/* Input Devices */
 
 // Sequencer Grid
 class Sequencer {
