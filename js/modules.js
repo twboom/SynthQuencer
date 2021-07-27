@@ -104,7 +104,7 @@ class Oscillator {
 
     };
 
-    deconnect(connection) {
+    disconnect(connection) {
 
         if (connection === 'ALL') {
             this.connections.clear();
