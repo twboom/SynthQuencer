@@ -21,3 +21,9 @@ utility.getBPM = function(milliseconds) {
     const bpm = Math.round(60000 / milliseconds);
     return bpm;
 }
+
+// Get milliseconds from BP<
+utility.getMilliseconds = function(bpm) {
+    const ms = Math.round(bpm * 60000);
+    return ms;
+}
