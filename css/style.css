@@ -5,6 +5,14 @@
     --background: #22222e;
     --panel-background: #323242;
     --panel-shadow: drop-shadow(0 0 10px #121212);
+
+    /* Colors */
+    --pink: #9c1cf1;
+    --blue: #283cd4;
+    --red: #e00404;
+    --green: #1eeb25;
+
+
 }
 
 body {
@@ -22,3 +30,14 @@ header {
 h1.header { font-size: 64px; }
 p.header { font-size: 32px; transition: 0.1s; transition-property: letter-spacing; }
 p.header:hover { letter-spacing: 2px; }
+
+button.sequencer-button {
+    width: 1rem;
+    height: 1rem;
+    margin: 4px;
+    border: solid 2px var(--pink);
+    background-color: var(--pink);
+    border-radius: 4px;
+    background-color: brightness(0.5);
+    outline: none;
+}
