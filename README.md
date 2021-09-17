@@ -5,6 +5,9 @@ SynthQuencer is not finished yet, but we doubt it will ever be! Maybe the develo
 
 I'm currently in the process of rewriting the *entire* app, so stay tuned for updates!
 
+## Rewrite
+I got stuck rewriting this, so I'm starting over from scratch. Again. This time I'll be limiting the scope quite a bit! So hopefully I will suceed this time!
+
 ## Information
 If you want to know more about how to use SynthQuencer, please take a look at our [wiki](https://synthquencer.thijsboom.com/wiki)!
 
