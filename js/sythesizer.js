@@ -42,8 +42,8 @@ class Synthesizer {
 
         // Create the envelope
         gain.gain.setValueAtTime(0, intf.currentTime); // Initial value
-        gain.gain.linearRampToValueAtTime(env.sustain, intf.currentTime + env.attack); // attack
-        gain.gain.linearRampToValueAtTime(env.sustain, intf.currentTime + env.attack + env.decay); // decay
+        gain.gain.linearRampToValueAtTime(sustain, intf.currentTime + env.attack); // attack
+        gain.gain.linearRampToValueAtTime(sustain, intf.currentTime + env.attack + env.decay); // decay
         gain.gain.linearRampToValueAtTime(0, intf.currentTime + env.attack + env.decay + env.sustain + duration + env.release); // release
 
         // Connect the oscillator to the gain node
