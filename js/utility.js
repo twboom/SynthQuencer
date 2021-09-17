@@ -2,7 +2,7 @@
 const utility = [];
 
 // MIDI note to frequency
-utility.noteToFrequency = function(note, transpose, detune, tuning) {
+utility.noteToFrequency = function(note, {transpose, detune, tuning}) {
     if (!transpose) { transpose = 0; };
     if (!detune) { detune = 0; };
     if (!tuning) { tuning = 440; };
