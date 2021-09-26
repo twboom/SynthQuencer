@@ -1,6 +1,8 @@
 // Synthesizer class
 class Synthesizer {
 
+    type = 'INSTRUMENT'
+
     synth = {
         'wave': 'sine',
         'transpose': 0,
@@ -59,6 +61,8 @@ class Synthesizer {
 
 // Note class
 class Note {
+
+    type = 'NOTE';
     
     constructor(note, duration, velocity, active) {
         this.note = note;

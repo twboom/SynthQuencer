@@ -1,6 +1,8 @@
 // Sequencer class
 class Sequencer {
 
+    type = 'SEQUENCER';
+
     size = [16, 16];
     baseNote = 69;
 
@@ -36,32 +38,40 @@ class Sequencer {
     }
 
     // Function for attaching instruments and renderers
-    attach(type, obj_id) {
+    attach(type, obj) {
         
         switch(type) {
-            case 'instrument':
-                const inst = project.instruments.find( ({ id }) => id === obj_id);
+            case 'INSTRUMENT':
+                if (obj.type === 'INSTRUMENT') {
+                    this.instruments.push(obj);
+                    break;
+                }
+                const inst = project.instruments.find( ({ id }) => id === obj);
                 this.instruments.push(inst);
                 break;
 
-            case 'renderer':
-                const renderer = project.renderers.find( ({ id }) => id === obj_id);
+            case 'RENDERER':
+                if (obj.type === 'RENDERER') {
+                    this.renderers.push(obj);
+                    break;
+                }
+                const renderer = project.renderers.find( ({ id }) => id === obj);
                 this.renderers.push(renderer);
                 break;
         }
 
     }
 
-    decouple(type, obj_id) {
+    decouple(type, obj) {
 
         switch(type) {
-            case 'instrument':
-                const inst = this.instruments.findIndex( ({ id }) => id === obj_id);
+            case 'INSTRUMENT':
+                const inst = this.instruments.findIndex( ({ id }) => id === obj);
                 this.instruments.splice(inst, 1);
                 break;
 
-            case 'renderer':
-                const renderer = this.renderers.findIndex( ({ id }) => id === obj_id);
+            case 'RENDERER':
+                const renderer = this.renderers.findIndex( ({ id }) => id === obj);
                 this.renderers.splice(renderer, 1);
                 break;
         }
@@ -69,13 +79,20 @@ class Sequencer {
     }
 
     // Functions for playing
-    tick() {
+
+    playStep(step) {
         this.instruments.forEach(inst => {
-            const step = memory[this.play.step];
-            step.forEach(note => {
-                inst.play(note);
+            const line = this.memory[step];
+            line.forEach(note => {
+                if (note.active) {
+                    inst.play(note);
+                }
             });
         })
+    };
+
+    tick() {
+        this.playStep(this.play.step);
 
         this.play.step++;
     }
