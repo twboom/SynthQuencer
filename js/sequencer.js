@@ -2,14 +2,37 @@
 class Sequencer {
 
     size = [16, 16];
+    baseNote = 69;
 
     instruments = [];
     renderers = [];
 
-    constructor(size, instruments, renderers) {
+    play = {
+        'step': 0,
+    };
+
+    memory = [];
+
+    constructor(size, baseNote, instruments, renderers) {
         if (size) { this.size = size };
+        if (baseNote) { this.baseNote = baseNote };
         if (Array.isArray(instruments)) { this.instruments.concat(instruments) };
         if (Array.isArray(renderers)) { this.renderers.concat(renderers) };
+
+        for (let x = 0; x < this.size[0]; x++) {
+            const line = [];
+            this.memory.push(line);
+            for (let y = 0; y < this.size[1]; y++) {
+                const note = new Note(this.baseNote + y, 0, 127, false);
+                line.push(note);
+            }
+        }
+    }
+
+    // Function for toggling notes
+    toggle(x, y) {
+        const note = this.memory[x][y];
+        note.toggle();
     }
 
     // Function for attaching instruments and renderers
@@ -46,16 +69,25 @@ class Sequencer {
     }
 
     // Functions for playing
-    next() {}
+    tick() {
+        this.instruments.forEach(inst => {
+            const step = memory[this.play.step];
+            step.forEach(note => {
+                inst.play(note);
+            });
+        })
+
+        this.play.step++;
+    }
 
     start() {
-        setInterval(
-            _ => {
-
-            },
+        this.interval = setInterval(
+            _ => { this.tick(); },
             utility.getMS(project.tempo)
         )
     }
 
-    stop() {}
+    stop() {
+        clearInterval(this.interval);
+    }
 }

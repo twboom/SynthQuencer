@@ -7,20 +7,20 @@ class Synthesizer {
         'detune': 0,
         'tuning': 440,
         'velocity': 127,
-    }
+    };
     env = {
         'attack': 0.01,
         'decay': 0.1,
         'sustain': 0.5,
         'release': 0.1,
-    }
+    };
 
     constructor(synth, env) {
 
         if (synth !== undefined) { this.synth = {...this.synth, ...synth} };
         if (env !== undefined) { this.env = {...this.env, ...env} };
 
-    }
+    };
 
     play({note, velocity, duration}) {
         // Declare contants
@@ -53,6 +53,25 @@ class Synthesizer {
         const passtime = env.attack + env.decay + env.sustain + env.release + duration;
         osc.start(0);
         osc.stop(intf.currentTime + passtime);
-    }
+    };
 
-}
+};
+
+// Note class
+class Note {
+    
+    constructor(note, duration, velocity, active) {
+        this.note = note;
+        this.duration = duration;
+        this.velocity = velocity;
+        
+        if (typeof active === 'boolean') {
+            this.active = active;
+        } else { this.active = true };
+    };
+
+    toggle() {
+        this.active = !this.active;
+    }
+    
+};
