@@ -13,17 +13,26 @@ utility.noteToFrequency = function(note, {transpose, detune, tuning}) {
     const frequency = Math.pow(2, (note - (12 * detune)) / 12) * tuning;
     
     return frequency;
-}
+};
 
 
 // Get BPM from milliseconds
 utility.getBPM = function(milliseconds) {
     const bpm = Math.round(60000 / milliseconds);
     return bpm;
-}
+};
 
-// Get milliseconds from BP<
+// Get milliseconds from BPM
 utility.getMS = function(bpm) {
     const ms = Math.round(bpm * 60000);
     return ms;
-}
+};
+
+// Get the object type
+utility.getType = function(object) {
+    
+    if (object instanceof Renderer) { return 'RENDERER' };
+    if (object instanceof Synthesizer) { return 'INSTRUMENT' };
+    if (object instanceof Note) { return 'NOTE' };
+    
+};
