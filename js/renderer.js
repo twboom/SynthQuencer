@@ -19,6 +19,11 @@ class SequencerRenderer extends Renderer {
     }
 
     render() {
+
+        const container = document.createElement('div');
+        container.classList.add('sequencer');
+        
+
     }
     
 }

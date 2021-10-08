@@ -38,9 +38,9 @@ class Sequencer {
     }
 
     // Function for attaching instruments and renderers
-    attach(type, obj) {
+    attach(obj) {
         
-        switch(type) {
+        switch(utility.getType(obj)) {
             case 'INSTRUMENT':
                 if (obj.type === 'INSTRUMENT') {
                     this.instruments.push(obj);
