@@ -32,7 +32,7 @@ utility.getMS = function(bpm) {
 utility.getType = function(object) {
     
     if (object instanceof Renderer) { return 'RENDERER' };
-    if (object instanceof Synthesizer) { return 'INSTRUMENT' };
+    if (object instanceof Instrument) { return 'INSTRUMENT' };
     if (object instanceof Note) { return 'NOTE' };
     
 };

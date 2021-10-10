@@ -1,13 +1,20 @@
-// Synthesizer class
-class Synthesizer {
-
-    synth = {
-        'wave': 'sine',
+// General instrument class
+class Instrument {
+    properties = {
         'transpose': 0,
         'detune': 0,
         'tuning': 440,
         'velocity': 127,
     };
+
+    constructor(properties) {
+        if (properties !== undefined) { this.properties = {...this.properties, ...properties} };
+    };
+};
+
+// Synthesizer class
+class Synthesizer extends Instrument {
+
     env = {
         'attack': 0.01,
         'decay': 0.1,
@@ -15,16 +22,18 @@ class Synthesizer {
         'release': 0.1,
     };
 
-    constructor(synth, env) {
+    constructor(properties, env) {
 
-        if (synth !== undefined) { this.synth = {...this.synth, ...synth} };
+        super({wave: 'sine'})
+
+        if (properties !== undefined) { this.properties = {...this.properties, ...properties} };
         if (env !== undefined) { this.env = {...this.env, ...env} };
 
     };
 
     play({note, velocity, duration}) {
         // Declare contants
-        const synth = this.synth;
+        const properties = this.properties;
         const env = this.env;
 
         const sustain = env.sustain * (velocity / 127);
@@ -34,8 +43,8 @@ class Synthesizer {
         const osc = intf.createOscillator();
 
         // Set the wave type and frequency
-        osc.type = this.synth.wave;
-        osc.frequency.value = utility.noteToFrequency(note, synth);
+        osc.type = properties.wave;
+        osc.frequency.value = utility.noteToFrequency(note, properties);
 
         // Create a gain node
         const gain = intf.createGain();
