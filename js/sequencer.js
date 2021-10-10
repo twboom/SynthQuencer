@@ -33,8 +33,19 @@ class Sequencer {
 
     // Function for toggling notes
     toggle(x, y) {
+        if (Array.isArray(x) && y === undefined) {
+            y = x[1];
+            x = x[0];
+        }
+
         const note = this.memory[x][y];
         note.toggle();
+
+        this.renderers.forEach(renderer => {
+            renderer.update('TOGGLE_NOTE', [x, y]);
+        });
+
+        console.log(`Toggled (${x},${y})`)
     }
 
     // Function for attaching instruments and renderers
@@ -42,21 +53,11 @@ class Sequencer {
         
         switch(utility.getType(obj)) {
             case 'INSTRUMENT':
-                if (obj.type === 'INSTRUMENT') {
-                    this.instruments.push(obj);
-                    break;
-                }
-                const inst = project.instruments.find( ({ id }) => id === obj);
-                this.instruments.push(inst);
+                this.instruments.push(obj);
                 break;
 
             case 'RENDERER':
-                if (obj.type === 'RENDERER') {
-                    this.renderers.push(obj);
-                    break;
-                }
-                const renderer = project.renderers.find( ({ id }) => id === obj);
-                this.renderers.push(renderer);
+                this.renderers.push(obj);
                 break;
         }
 
@@ -89,18 +90,26 @@ class Sequencer {
                 }
             });
         })
+        this.renderers.forEach(renderer => {
+            renderer.update('CHANGE_STEP', step);
+        });
     };
 
     tick() {
+        console.log(this.play.step)
         this.playStep(this.play.step);
 
         this.play.step++;
+
+        if (this.play.step >= this.size[0]) {
+            this.play.step = 0;
+        }
     }
 
     start() {
         this.interval = setInterval(
             _ => { this.tick(); },
-            utility.getMS(project.tempo)
+            utility.getMS(project.tempo) / 4
         )
     }
 

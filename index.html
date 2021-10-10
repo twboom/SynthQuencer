@@ -20,19 +20,34 @@
     <script src="js/sythesizer.js"></script>
     <script src="js/sequencer.js"></script>
     <script src="js/renderer.js"></script>
-
-    <script>
-        // Testing code
-        const mySynth = new Synthesizer();
-        const mySeq = new Sequencer();
-        mySeq.attach('INSTRUMENT', mySynth);
-    </script>
 </head>
 <body>
     
     <main>
 
     </main>
+
+    <script>
+        // Testing code
+        const mySynth = new Synthesizer();
+        const mySeq = new Sequencer();
+        mySeq.attach(mySynth);
+
+        const myRen = new SequencerRenderer(document.body, mySeq);
+        mySeq.attach(myRen);
+        myRen.render();
+    </script>
+
+    <style>
+        /* Temp styling */
+        button.sequencer.cell[data-active="true"] {
+            background-color: #ff0000;
+        }
+
+        button.sequencer.cell[data-current="true"] {
+            background-color: #00ff00;
+        }	
+    </style>
 
 </body>
 </html>
