@@ -21,24 +21,19 @@ class Sequencer {
         if (Array.isArray(instruments)) { this.instruments.concat(instruments) };
         if (Array.isArray(renderers)) { this.renderers.concat(renderers) };
 
-        for (let x = 0; x < this.size[0]; x++) {
+        for (let y = 0; y < this.size[1]; y++) {
             const line = [];
             this.memory.push(line);
-            for (let y = 0; y < this.size[1]; y++) {
-                const note = new Note(this.baseNote + y, 0, 127, false);
+            for (let x = 0; x < this.size[0]; x++) {
+                const note = new Note(this.baseNote + x, 0, 127, false);
                 line.push(note);
             }
         }
     }
 
     // Function for toggling notes
-    toggle(x, y) {
-        if (Array.isArray(x) && y === undefined) {
-            y = x[1];
-            x = x[0];
-        }
-
-        const note = this.memory[x][y];
+    toggle([x, y]) {
+        const note = this.memory[y][x];
         note.toggle();
 
         this.renderers.forEach(renderer => {
@@ -87,6 +82,7 @@ class Sequencer {
             line.forEach(note => {
                 if (note.active) {
                     inst.play(note);
+                    console.log('playing', note.note)
                 }
             });
         })
@@ -101,7 +97,7 @@ class Sequencer {
 
         this.play.step++;
 
-        if (this.play.step >= this.size[0]) {
+        if (this.play.step >= this.size[1]) {
             this.play.step = 0;
         }
     }

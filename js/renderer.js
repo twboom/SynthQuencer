@@ -34,7 +34,7 @@ class SequencerRenderer extends Renderer {
         container.appendChild(gridContainer);
 
         for (let y = 0; y < size[0]; y++) {
-            const column = document.createElement('div');
+            const line = document.createElement('div');
             for (let x = 0; x < size[1]; x++) {
                 const cell = document.createElement('button');
                 cell.classList.add('sequencer');
@@ -46,11 +46,11 @@ class SequencerRenderer extends Renderer {
                 const memoryCell = this.obj.memory[x][y];
                 cell.dataset.active = memoryCell.active;
 
-                cell.addEventListener('click', _ => { obj.toggle(x, y) });
+                cell.addEventListener('click', _ => { obj.toggle([x, y]) });
 
-                column.appendChild(cell);
+                line.appendChild(cell);
             };
-            gridContainer.appendChild(column);
+            gridContainer.appendChild(line);
         };
 
         this.parent.appendChild(container);
@@ -63,7 +63,7 @@ class SequencerRenderer extends Renderer {
 
             case 'TOGGLE_NOTE':
                 const cell = this.gridContainer.querySelector(`[data-x="${content[0]}"][data-y="${content[1]}"]`);
-                const memoryCell = this.obj.memory[content[0]][content[1]];
+                const memoryCell = this.obj.memory[content[1]][content[0]];
                 cell.dataset.active = memoryCell.active;
                 break;
 
