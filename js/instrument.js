@@ -39,7 +39,7 @@ class Synthesizer extends Instrument {
         const sustain = env.sustain * (velocity / 127);
 
         // Create a new oscillator
-        const intf = new AudioContext();
+        const intf = project.interface;
         const osc = intf.createOscillator();
 
         // Set the wave type and frequency
