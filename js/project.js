@@ -1,5 +1,5 @@
 // Project class
-class Project {
+export class Project {
 
     tempo = 120; // Tempo in BPM
     interface = new AudioContext(); // Universal audio context
@@ -10,8 +10,11 @@ class Project {
         author: 'Thijs',
     }
 
+    synthesizers = []; // Array of synthesizers
+    renderers = []; // Array of renderers
+
     constructor(tempo, info) {
-        this.tempo = tempo; // Change tempo if nessary
+        if (tempo !== this.tempo && (!isNaN(parseFloat(tempo)))) { this.tempo = tempo; } // Change tempo if nessary
         if (info !== undefined) { this.info = {...this.info, ...info} };
     };
 
