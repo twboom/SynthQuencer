@@ -1,5 +1,5 @@
 import { Project } from './project.js';
-import { Synthesizer } from './instrument.js';
+import { Envelope, Synthesizer } from './instrument.js';
 import { Sequencer } from './sequencer.js';
 import { SequencerRenderer } from './renderer.js';
 
@@ -7,7 +7,8 @@ import { SequencerRenderer } from './renderer.js';
 export const project = new Project();
 
 // Testing code
-const mySynth = new Synthesizer({wave: 'sawtooth'});
+const myEnv = new Envelope()
+const mySynth = new Synthesizer({wave: 'sawtooth'}, myEnv);
 const mySeq = new Sequencer([16,16]);
 mySeq.attach(mySynth);
 

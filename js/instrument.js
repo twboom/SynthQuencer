@@ -18,20 +18,16 @@ export class Instrument {
 // Synthesizer class
 export class Synthesizer extends Instrument {
 
-    env = {
-        'attack': 0.01,
-        'decay': 0.1,
-        'sustain': 0.5,
-        'release': 0.1,
-    };
-
     constructor(properties, env) {
 
         super({wave: 'sine'})
 
-        if (properties !== undefined) { this.properties = {...this.properties, ...properties} };
-        if (env !== undefined) { this.env = {...this.env, ...env} };
+        if (!(env instanceof Envelope)) { throw new Error('Invalid or no envelope provided') };
+        this.env = env;
 
+        console.log(env)
+
+        if (properties !== undefined) { this.properties = {...this.properties, ...properties} }; // Override default properties
     };
 
     play({note, velocity, duration}) {
@@ -86,4 +82,34 @@ export class Note {
         this.active = !this.active;
     }
     
+};
+
+// Envelope class
+export class Envelope {
+
+    instruments = [];
+    renderers = [];
+
+    constructor(attack, decay, sustain, release) {
+
+        if (attack instanceof Envelope) {
+            attack = attack.attack;
+            decay = attack.decay;
+            sustain = attack.sustain;
+            release = attack.release;
+        }
+
+        // Complete missing values
+        if (attack === undefined) { attack = 0.01 };
+        if (decay === undefined) { decay = 0.1 };
+        if (sustain === undefined) { sustain = 0.5 };
+        if (release === undefined) { release = 0.1 };
+
+        this.attack = attack;
+        this.decay = decay;
+        this.sustain = sustain;
+        this.release = release;
+
+    };
+
 };

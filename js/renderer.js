@@ -85,3 +85,15 @@ export class SequencerRenderer extends Renderer {
     };
     
 };
+
+export class EnvelopeRenderer extends Renderer {
+
+    constructor(parent, obj) {
+        super('ENVELOPE', parent, obj);
+    }
+
+    render() {}
+
+    update() {}
+
+}
