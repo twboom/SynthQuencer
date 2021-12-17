@@ -1,5 +1,8 @@
+import { project } from './SynthQuencer.js';
+import {noteToFrequency } from './utility.js';
+
 // General instrument class
-class Instrument {
+export class Instrument {
     properties = {
         'transpose': 0,
         'detune': 0,
@@ -13,7 +16,7 @@ class Instrument {
 };
 
 // Synthesizer class
-class Synthesizer extends Instrument {
+export class Synthesizer extends Instrument {
 
     env = {
         'attack': 0.01,
@@ -44,7 +47,7 @@ class Synthesizer extends Instrument {
 
         // Set the wave type and frequency
         osc.type = properties.wave;
-        osc.frequency.value = utility.noteToFrequency(note, properties);
+        osc.frequency.value = noteToFrequency(note, properties);
 
         // Create a gain node
         const gain = intf.createGain();
@@ -67,7 +70,7 @@ class Synthesizer extends Instrument {
 };
 
 // Note class
-class Note {
+export class Note {
     
     constructor(note, duration, velocity, active) {
         this.note = note;

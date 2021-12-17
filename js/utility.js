@@ -1,8 +1,8 @@
-// Utility object
-const utility = [];
+import { Renderer } from "./renderer.js";
+import { Instrument, Note } from "./instrument.js";
 
 // MIDI note to frequency
-utility.noteToFrequency = function(note, {transpose, detune, tuning}) {
+export function noteToFrequency(note, {transpose, detune, tuning}) {
     if (!transpose) { transpose = 0; };
     if (!detune) { detune = 0; };
     if (!tuning) { tuning = 440; };
@@ -17,19 +17,19 @@ utility.noteToFrequency = function(note, {transpose, detune, tuning}) {
 
 
 // Get BPM from milliseconds
-utility.getBPM = function(milliseconds) {
+export function getBPM(milliseconds) {
     const bpm = Math.round(60000 / milliseconds);
     return bpm;
 };
 
 // Get milliseconds from BPM
-utility.getMS = function(bpm) {
+export function getMS(bpm) {
     const ms = 60000 / bpm;
     return ms;
 };
 
 // Get the object type
-utility.getType = function(object) {
+export function getType(object) {
     
     if (object instanceof Renderer) { return 'RENDERER' };
     if (object instanceof Instrument) { return 'INSTRUMENT' };

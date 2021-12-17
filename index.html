@@ -21,38 +21,13 @@
     </script>
 
     <!-- JS -->
-    <script src="js/utility.js"></script>
-    <script src="js/instrument.js"></script>
-    <script src="js/sequencer.js"></script>
-    <script src="js/renderer.js"></script>
+    <script type="module" src="js/SynthQuencer.js"></script>
 </head>
 <body>
     
     <main>
 
     </main>
-
-    <script>
-        // Testing code
-        const mySynth = new Synthesizer({wave: 'sawtooth'});
-        const mySeq = new Sequencer();
-        mySeq.attach(mySynth);
-
-        const myRen = new SequencerRenderer(document.body, mySeq);
-        mySeq.attach(myRen);
-        myRen.render();
-    </script>
-
-    <!-- <style>
-        /* Temp styling */
-        button.sequencer.cell[data-active="true"] {
-            background-color: #ff0000;
-        }
-
-        button.sequencer.cell[data-current="true"] {
-            background-color: #00ff00;
-        }	
-    </style> -->
 
 </body>
 </html>

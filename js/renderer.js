@@ -1,5 +1,5 @@
 // General renderer class
-class Renderer {
+export class Renderer {
 
     constructor(renderType, parent, obj) {
         this.renderType = renderType;
@@ -11,7 +11,7 @@ class Renderer {
 };
 
 // Sequencer renderer class
-class SequencerRenderer extends Renderer {
+export class SequencerRenderer extends Renderer {
     
 
     constructor(parent, obj) {

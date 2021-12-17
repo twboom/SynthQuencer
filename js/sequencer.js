@@ -1,5 +1,9 @@
+import { project } from './SynthQuencer.js';
+import { Note } from './instrument.js';
+import { getType, getMS } from './utility.js';
+
 // Sequencer class
-class Sequencer {
+export class Sequencer {
 
     type = 'SEQUENCER';
 
@@ -46,7 +50,7 @@ class Sequencer {
     // Function for attaching instruments and renderers
     attach(obj) {
         
-        switch(utility.getType(obj)) {
+        switch(getType(obj)) {
             case 'INSTRUMENT':
                 this.instruments.push(obj);
                 break;
@@ -105,7 +109,7 @@ class Sequencer {
     start() {
         this.interval = setInterval(
             _ => { this.tick(); },
-            utility.getMS(project.tempo) / 4
+            getMS(project.tempo) / 4
         )
     }
 
