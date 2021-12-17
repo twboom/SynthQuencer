@@ -20,7 +20,21 @@ export class Sequencer {
     memory = [];
 
     constructor(size, baseNote, instruments, renderers) {
-        if (size) { this.size = size };
+        if (size) {
+            if (
+                size.length === 2 &&
+                !isNaN(size[0]) &&
+                !isNaN(size[1]) &&
+                isFinite(size[0]) &&
+                isFinite(size[1]) &&
+                size[0] % 1 === 0 &&
+                size[1] % 1 === 0 &&
+                size[0] > 0 &&
+                size[1] > 0
+            ) { this.size = size } else {
+                console.error('Invalid size, set to [16,16]');
+            }
+        };
         if (baseNote) { this.baseNote = baseNote };
         if (Array.isArray(instruments)) { this.instruments.concat(instruments) };
         if (Array.isArray(renderers)) { this.renderers.concat(renderers) };
