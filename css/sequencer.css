@@ -1,0 +1,65 @@
+/*
+    Below are some color declarations
+*/
+
+/* Purple */
+div.sequencer.grid[data-color="purple"] {
+    --color-bright: #9c1cf1;
+    --color-dark: #431761;
+}
+
+/* Red */
+div.sequencer.grid[data-color="red"] {
+    --color-bright: #e00404;
+    --color-dark: #501c1c;
+}
+
+/* Blue */
+div.sequencer.grid[data-color="blue"] {
+    --color-bright: #283cd4;
+    --color-dark: #18226e;
+}
+
+/* Green */
+div.sequencer.grid[data-color="green"] {
+    --color-bright: #1eeb25;
+    --color-dark: #106e14;
+}
+
+/* General styling */
+
+button.sequencer.cell {
+    all: unset;
+    width: 24px;
+    height: 24px;
+
+    border: 2px solid;
+    border-radius: 8px;
+    outline: none;
+
+    margin: 4px;
+    padding: 0;
+
+    cursor: pointer;
+
+    transition: background-color 0.1s, border-color 0.1s;
+}
+
+
+button.sequencer.cell {
+    background-color: var(--color-dark);
+    border-color: var(--color-bright);
+}
+
+button.sequencer.cell[data-active=true] {
+    background-color: var(--color-bright);
+}
+
+
+button.sequencer.cell[data-current="true"] {
+    background-color: #4b4b4b;
+}
+
+button.sequencer.cell[data-current=true][data-active=true] {
+    background-color: white;
+}

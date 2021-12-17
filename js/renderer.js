@@ -33,8 +33,12 @@ class SequencerRenderer extends Renderer {
         gridContainer.classList.add('grid');
         container.appendChild(gridContainer);
 
+        gridContainer.dataset.color = 'purple';
+
         for (let y = 0; y < size[0]; y++) {
             const line = document.createElement('div');
+            line.classList.add('sequencer');
+            line.classList.add('row');
             for (let x = 0; x < size[1]; x++) {
                 const cell = document.createElement('button');
                 cell.classList.add('sequencer');
