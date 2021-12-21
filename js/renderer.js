@@ -18,6 +18,9 @@ export class SequencerRenderer extends Renderer {
         super('SEQUENCER', parent, obj);
     }
 
+    dragState = false;
+    currentDrag = [];
+
     render() {
 
         const obj = this.obj;
@@ -50,12 +53,29 @@ export class SequencerRenderer extends Renderer {
                 const memoryCell = this.obj.memory[x][y];
                 cell.dataset.active = memoryCell.active;
 
-                cell.addEventListener('click', _ => { obj.toggle([x, y]) });
+                cell.addEventListener('mousedown', _ => {
+                    obj.toggle([x, y]);
+                    this.currentDrag.push([x, y]);
+                });
+
+                cell.addEventListener('mouseover', evt => { // Toggle if dragging
+                    if (
+                        this.dragState &&
+                        !this.currentDrag.includes(evt.target)
+                    ) {
+                        obj.toggle([x, y]);
+                        this.currentDrag.push(evt.target);
+                    }
+                });
 
                 line.appendChild(cell);
             };
             gridContainer.appendChild(line);
         };
+
+        // Drag functionality
+        gridContainer.addEventListener('mousedown', _ => { this.dragState = true; this.currentDrag = []; });
+        gridContainer.addEventListener('mouseup', _ => { this.dragState = false; });
 
         this.parent.appendChild(container);
 

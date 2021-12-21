@@ -110,7 +110,6 @@ export class Sequencer {
     };
 
     tick() {
-        console.log(this.play.step)
         this.playStep(this.play.step);
 
         this.play.step++;
