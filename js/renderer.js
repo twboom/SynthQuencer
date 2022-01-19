@@ -75,7 +75,7 @@ export class SequencerRenderer extends Renderer {
 
         // Drag functionality
         gridContainer.addEventListener('mousedown', _ => { this.dragState = true; this.currentDrag = []; });
-        gridContainer.addEventListener('mouseup', _ => { this.dragState = false; });
+        window.addEventListener('mouseup', _ => { this.dragState = false; });
 
         this.parent.appendChild(container);
 
