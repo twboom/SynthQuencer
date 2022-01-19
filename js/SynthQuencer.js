@@ -12,7 +12,7 @@ const mySynth = new Synthesizer({wave: 'sawtooth'}, myEnv);
 const mySeq = new Sequencer([16,16]);
 mySeq.attach(mySynth);
 
-const myRen = new SequencerRenderer(document.body, mySeq);
+const myRen = new SequencerRenderer(document.getElementById('main'), mySeq);
 mySeq.attach(myRen);
 myRen.render();
 

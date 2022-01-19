@@ -1,0 +1,19 @@
+/* General bar styling */
+.bar {
+    display: flex;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--);
+}
+
+.bar>section {
+
+}
+
+/* Information (header) */
+header {
+    top: 0;
+}

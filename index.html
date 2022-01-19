@@ -7,7 +7,9 @@
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 
     <!-- CSS -->
+    <link rel="stylesheet" href="css/pallet.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bars.css">
     <link rel="stylesheet" href="css/sequencer.css">
 
     <script>
@@ -24,12 +26,18 @@
     <script type="module" src="js/SynthQuencer.js"></script>
 </head>
 <body>
-    <header id="controls">
-        <section id="left"></section>
-        <section id="middle"></section>
-        <section id="right"></section>
+    <header id="controls" class="bar">
+        <section id="left">
+            <input type="number" name="tempo" id="tempo" value="">
+        </section>
+        <section id="middle">
+            <button>Play/Pause</button>
+        </section>
+        <section id="right">
+            <p><a href="https://github.com/twboom/synthquencer">GitHub</a></p>
+        </section>
     </header>
     <main id="main"></main>
-    <footer id="information"></footer>
+    <footer id="information" class="bar"></footer>
 </body>
 </html>
