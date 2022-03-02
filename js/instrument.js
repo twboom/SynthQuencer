@@ -78,7 +78,7 @@ export class Note {
 
     toggle() {
         this.active = !this.active;
-    }
+    };
     
 };
 

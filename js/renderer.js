@@ -87,7 +87,7 @@ export class SequencerRenderer extends Renderer {
 
             case 'TOGGLE_NOTE':
                 const cell = this.gridContainer.querySelector(`[data-x="${x}"][data-y="${y}"]`);
-                const memoryCell = this.obj.memory[x][y];
+                const memoryCell = this.obj.memory[y][x];
                 cell.dataset.active = memoryCell.active;
                 break;
 
