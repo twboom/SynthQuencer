@@ -1,5 +1,5 @@
 import { project } from './SynthQuencer.js';
-import {noteToFrequency } from './utility.js';
+import { noteToFrequency } from './utility.js';
 
 // General instrument class
 export class Instrument {
