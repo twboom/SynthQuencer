@@ -1,0 +1,36 @@
+a#github {
+    font-size: 0;
+    border-radius: 50%;
+}
+
+img#github-link {
+    width: 48px;
+    height: 48px;
+    filter: invert(1);
+    transition: filter 0.2s, transform 0.2s;
+    transform: translateY(-.5px);
+}
+
+img#github-link:hover {
+    filter: invert(0.7);
+}
+
+img#github-link:active, img#github-link:focus {
+    outline: none;
+    transform: translateY(-.5px) scale(0.95);
+}
+
+img#github-link:focus {
+    outline: none;
+}
+
+@media (prefers-color-scheme: dark) {
+
+    img#github-link {
+        filter: invert(0);
+    }
+
+    img#github-link:hover {
+        filter: invert(0.3);
+    }
+}
