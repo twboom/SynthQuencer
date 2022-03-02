@@ -18,4 +18,18 @@ export class Project {
         if (info !== undefined) { this.info = {...this.info, ...info} };
     };
 
+    attach(obj) {
+        
+        switch(getType(obj)) {
+            case 'INSTRUMENT':
+                this.instruments.push(obj);
+                break;
+
+            case 'RENDERER':
+                this.renderers.push(obj);
+                break;
+        }
+
+    }
+
 };
