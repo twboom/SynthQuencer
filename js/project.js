@@ -16,6 +16,8 @@ export class Project {
     renderers = []; // Array of renderers
     sequencers = []; // Array of sequencers
 
+    running = false; // Boolean for if the project is running
+
     constructor(tempo, info) {
         if (tempo !== this.tempo && (!isNaN(parseFloat(tempo)))) { this.tempo = tempo; } // Change tempo if nessary
         if (info !== undefined) { this.info = {...this.info, ...info} };
@@ -37,6 +39,24 @@ export class Project {
                 break;
         };
 
+    };
+
+    start() {
+        this.sequencers.forEach(seq => {
+            seq.start();
+        });
+        this.running = true;
+    };
+
+    stop() {
+        this.sequencers.forEach(seq => {
+            seq.stop();
+        });
+        this.running = false;
+    };
+
+    toggle() {
+        if (this.running) { this.stop() } else { this.start() };
     };
 
 };
