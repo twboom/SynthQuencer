@@ -12,6 +12,7 @@ export class Instrument {
 
     constructor(properties) {
         if (properties !== undefined) { this.properties = {...this.properties, ...properties} };
+        project.attach(this);
     };
 };
 

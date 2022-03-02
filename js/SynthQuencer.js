@@ -3,11 +3,13 @@ import { Envelope, Synthesizer } from './instrument.js';
 import { Sequencer } from './sequencer.js';
 import { SequencerRenderer } from './renderer.js';
 
-function start() {
-
+function init() {
     // Create the Project object
     const project = new Project();
+    return project;
+}
 
+function start() {
     // Create the envelope
     const myEnv = new Envelope();
     // Create the synthesizer
@@ -20,11 +22,11 @@ function start() {
     const myRen = new SequencerRenderer(document.getElementById('main'), mySeq);
     mySeq.attach(myRen);
     myRen.render();
-
-    console.log(myRen)
-
-    return project;
+    console.log(project)
 };
 
 // Create project and export
-export const project = start();
+export const project = init();
+
+// Create the elements
+start();

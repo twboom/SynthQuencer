@@ -1,3 +1,5 @@
+import { project } from './SynthQuencer.js'
+
 // General renderer class
 export class Renderer {
 
@@ -5,7 +7,7 @@ export class Renderer {
         this.renderType = renderType;
         this.parent = parent;
         this.obj = obj;
-
+        project.attach(this);
     };
 
 };

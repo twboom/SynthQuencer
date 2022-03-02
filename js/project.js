@@ -14,6 +14,7 @@ export class Project {
 
     instruments = []; // Array of intruments
     renderers = []; // Array of renderers
+    sequencers = []; // Array of sequencers
 
     constructor(tempo, info) {
         if (tempo !== this.tempo && (!isNaN(parseFloat(tempo)))) { this.tempo = tempo; } // Change tempo if nessary
@@ -29,6 +30,10 @@ export class Project {
 
             case 'RENDERER':
                 this.renderers.push(obj);
+                break;
+
+            case 'SEQUENCER':
+                this.sequencers.push(obj);
                 break;
         };
 

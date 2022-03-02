@@ -33,7 +33,7 @@ export class Sequencer {
                 size[1] > 0
             ) { this.size = size } else {
                 console.error('Invalid size, set to [16,16]');
-            }
+            };
         };
         if (baseNote) { this.baseNote = baseNote };
         if (Array.isArray(instruments)) { this.instruments.concat(instruments) };
@@ -45,9 +45,11 @@ export class Sequencer {
             for (let x = 0; x < this.size[0]; x++) {
                 const note = new Note(this.baseNote + x, 0, 127, false);
                 line.push(note);
-            }
-        }
-    }
+            };
+        };
+
+        project.attach(this);
+    };
 
     // Function for toggling notes
     toggle([x, y]) {
@@ -59,7 +61,7 @@ export class Sequencer {
         });
 
         console.log(`Toggled (${x},${y})`);
-    }
+    };
 
     // Function for attaching instruments and renderers
     attach(obj) {
@@ -72,9 +74,9 @@ export class Sequencer {
             case 'RENDERER':
                 this.renderers.push(obj);
                 break;
-        }
+        };
 
-    }
+    };
 
     decouple(type, obj) {
 
@@ -88,9 +90,9 @@ export class Sequencer {
                 const renderer = this.renderers.findIndex( ({ id }) => id === obj);
                 this.renderers.splice(renderer, 1);
                 break;
-        }
+        };
 
-    }
+    };
 
     // Functions for playing
 
@@ -116,17 +118,17 @@ export class Sequencer {
 
         if (this.play.step >= this.size[1]) {
             this.play.step = 0;
-        }
-    }
+        };
+    };
 
     start() {
         this.interval = setInterval(
             _ => { this.tick(); },
             getMS(project.tempo) / 4
-        )
-    }
+        );
+    };
 
     stop() {
         clearInterval(this.interval);
-    }
+    };
 }
