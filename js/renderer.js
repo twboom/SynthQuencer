@@ -81,13 +81,13 @@ export class SequencerRenderer extends Renderer {
 
     };
 
-    update(type, content) {
+    update(type, [x, y]) {
 
         switch(type) {
 
             case 'TOGGLE_NOTE':
-                const cell = this.gridContainer.querySelector(`[data-x="${content[0]}"][data-y="${content[1]}"]`);
-                const memoryCell = this.obj.memory[content[1]][content[0]];
+                const cell = this.gridContainer.querySelector(`[data-x="${x}"][data-y="${y}"]`);
+                const memoryCell = this.obj.memory[x][y];
                 cell.dataset.active = memoryCell.active;
                 break;
 
@@ -100,7 +100,7 @@ export class SequencerRenderer extends Renderer {
                 });
                 break;
 
-        }
+        };
 
     };
     
