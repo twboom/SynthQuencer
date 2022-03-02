@@ -25,8 +25,6 @@ export class Synthesizer extends Instrument {
         if (!(env instanceof Envelope)) { throw new Error('Invalid or no envelope provided') };
         this.env = env;
 
-        console.log(env)
-
         if (properties !== undefined) { this.properties = {...this.properties, ...properties} }; // Override default properties
     };
 
