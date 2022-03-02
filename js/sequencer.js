@@ -58,7 +58,7 @@ export class Sequencer {
             renderer.update('TOGGLE_NOTE', [x, y]);
         });
 
-        console.log(`Toggled (${x},${y})`)
+        console.log(`Toggled (${x},${y})`);
     }
 
     // Function for attaching instruments and renderers
