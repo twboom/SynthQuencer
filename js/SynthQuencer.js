@@ -18,7 +18,10 @@ function start() {
     
     // Create the sequencer renderer and render
     const myRen = new SequencerRenderer(document.getElementById('main'), mySeq);
+    mySeq.attach(myRen);
     myRen.render();
+
+    console.log(myRen)
 
     return project;
 };
