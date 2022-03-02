@@ -1,3 +1,5 @@
+import { project } from "./SynthQuencer.js";
+
 // General control class
 export class Control {
     actions = {};
@@ -6,19 +8,31 @@ export class Control {
         this.element = element;
     };
 
-    addEventListener(event, callback) {
-        if (action[event] === undefined) { action[event] = []; };
-        action[event].push(callback);
-    }
+    addEventListener(event, callback, id) {
+        if (this.actions[event] === undefined) { this.actions[event] = []; };
+        this.actions[event].push({callback, id});
+        this.element.addEventListener(event, callback);
+    };
 
-    removeEventListener() {
-        
-    }
+    removeEventListener(id) {
+        Object.entries(this.actions).forEach(([event, obj]) => {
+            callbacks = obj.filter(obj => obj.id !== id);
+            callbacks.forEach(callback => {
+                this.element.removeEventListener(event, callback);
+            });
+        });
+    };
 };
 
-// Toggle play/stop button
+// Play/Stop Button
 export class PlayButton extends Control {
-    constructor(element, callback) {
-        super(element, 'click', callback);
+    constructor(element) {
+        super(element);
+        this.addEventListener('click', this.toggle);
+        console.log(this.element)
     };
-}
+
+    toggle() {
+        project.toggle();
+    };
+};

@@ -2,6 +2,7 @@ import { Project } from './project.js';
 import { Envelope, Synthesizer } from './instrument.js';
 import { Sequencer } from './sequencer.js';
 import { SequencerRenderer } from './renderer.js';
+import { PlayButton } from './controls.js';
 
 function init() {
     // Create the Project object
@@ -22,7 +23,9 @@ function start() {
     const myRen = new SequencerRenderer(document.getElementById('main'), mySeq);
     mySeq.attach(myRen);
     myRen.render();
-    console.log(project)
+    
+    // Activate the controls
+    const playButton = new PlayButton(document.getElementById('toggle'));
 };
 
 // Create project and export
