@@ -1,3 +1,5 @@
+import { getType } from './utility.js';
+
 // Project class
 export class Project {
 
@@ -10,12 +12,26 @@ export class Project {
         author: 'Thijs',
     }
 
-    synthesizers = []; // Array of synthesizers
+    instruments = []; // Array of intruments
     renderers = []; // Array of renderers
 
     constructor(tempo, info) {
         if (tempo !== this.tempo && (!isNaN(parseFloat(tempo)))) { this.tempo = tempo; } // Change tempo if nessary
         if (info !== undefined) { this.info = {...this.info, ...info} };
+    };
+
+    attach(obj) {
+        
+        switch(getType(obj)) {
+            case 'INSTRUMENT':
+                this.instruments.push(obj);
+                break;
+
+            case 'RENDERER':
+                this.renderers.push(obj);
+                break;
+        };
+
     };
 
 };
