@@ -47,3 +47,18 @@ export class StopButton extends Control {
         project.stop();
     };
 };
+
+// Tempo input
+export class TempoInput extends Control {
+    constructor(element) {
+        super(element);
+        this.addEventListener('change', this.change);
+        this.element.value = project.tempo;
+        console.log(this)
+    };
+
+    change() {
+        project.tempo = parseInt(this.value);
+        project.restart();
+    };
+};

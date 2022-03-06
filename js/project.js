@@ -66,4 +66,10 @@ export class Project {
         if (this.running) { this.pause() } else { this.start() };
     };
 
+    restart() {
+        if (this.running) {
+            this.pause();
+            this.start();
+        };
+    };
 };
