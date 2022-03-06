@@ -55,6 +55,13 @@ export class Project {
         this.running = false;
     };
 
+    stop() {
+        this.sequencers.forEach(seq => {
+            seq.stop();
+        });
+        this.running = false;
+    };
+
     toggle() {
         if (this.running) { this.pause() } else { this.start() };
     };

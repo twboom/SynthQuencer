@@ -131,4 +131,11 @@ export class Sequencer {
     pause() {
         clearInterval(this.interval);
     };
+
+    stop() {
+        if (this.interval) {
+            this.pause();
+        };
+        this.play.step = 0;
+    };
 }
