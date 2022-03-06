@@ -40,11 +40,11 @@ export class SequencerRenderer extends Renderer {
 
         gridContainer.dataset.color = 'purple';
 
-        for (let y = 0; y < size[0]; y++) {
+        for (let y = 0; y < size[1]; y++) {
             const line = document.createElement('div');
             line.classList.add('sequencer');
             line.classList.add('row');
-            for (let x = 0; x < size[1]; x++) {
+            for (let x = 0; x < size[0]; x++) {
                 const cell = document.createElement('button');
                 cell.classList.add('sequencer');
                 cell.classList.add('cell');
@@ -52,7 +52,7 @@ export class SequencerRenderer extends Renderer {
                 cell.dataset.y = y;
                 cell.dataset.current = false;
 
-                const memoryCell = this.obj.memory[x][y];
+                const memoryCell = this.obj.memory[y][x];
                 cell.dataset.active = memoryCell.active;
 
                 cell.addEventListener('mousedown', _ => {

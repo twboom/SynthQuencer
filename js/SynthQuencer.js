@@ -16,7 +16,7 @@ function start() {
     // Create the synthesizer
     const mySynth = new Synthesizer({ wave: 'sawtooth' }, myEnv);
     // Create the sequencer and attach the synthesizer
-    const mySeq = new Sequencer([16, 16]);
+    const mySeq = new Sequencer([32, 16]);
     mySeq.attach(mySynth);
     
     // Create the sequencer renderer and render
