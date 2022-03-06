@@ -66,6 +66,7 @@ export class TempoInput extends Control {
     };
 
     scroll(evt, scrollSpeed) {
+        evt.preventDefault();
         const deltaT = evt.wheelDeltaY / scrollSpeed;
         const newValue = parseInt(this.element.value) + deltaT;
         if (newValue < parseInt(this.element.min)) { return };
