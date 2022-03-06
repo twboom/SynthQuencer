@@ -50,15 +50,25 @@ export class StopButton extends Control {
 
 // Tempo input
 export class TempoInput extends Control {
-    constructor(element) {
+    constructor(element, scrollSpeed = 120) {
         super(element);
-        this.addEventListener('change', this.change);
+        this.addEventListener('change', _ => this.change());
+        this.addEventListener('wheel', evt => {
+            this.scroll(evt, scrollSpeed);
+        });
         this.element.value = project.tempo;
-        console.log(this)
     };
 
     change() {
-        project.tempo = parseInt(this.value);
+        project.tempo = parseInt(this.element.value);
         project.restart();
     };
+
+    scroll(evt, scrollSpeed) {
+        const deltaT = evt.wheelDeltaY / scrollSpeed;
+        const newValue = parseInt(this.element.value) + deltaT;
+        if (newValue < parseInt(this.element.min)) { return };
+        this.element.value = parseInt(this.element.value) + deltaT;
+        this.change();
+    }
 };
