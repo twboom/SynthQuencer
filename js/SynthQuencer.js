@@ -2,7 +2,7 @@ import { Project } from './project.js';
 import { Envelope, Synthesizer } from './instrument.js';
 import { Sequencer } from './sequencer.js';
 import { SequencerRenderer } from './renderer.js';
-import { PlayButton } from './controls.js';
+import { PlayButton, StopButton } from './controls.js';
 
 function init() {
     // Create the Project object
@@ -26,6 +26,7 @@ function start() {
     
     // Activate the controls
     const playButton = new PlayButton(document.getElementById('toggle'));
+    const stopButton = new StopButton(document.getElementById('stop'));
 };
 
 // Create project and export

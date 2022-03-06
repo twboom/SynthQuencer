@@ -36,3 +36,15 @@ export class PlayButton extends Control {
         project.toggle();
     };
 };
+
+// Stop Button
+export class StopButton extends Control {
+    constructor(element) {
+        super(element);
+        this.addEventListener('click', this.stop);
+    };
+
+    stop() {
+        project.stop();
+    };
+};
