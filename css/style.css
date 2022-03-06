@@ -7,11 +7,8 @@ body {
 }
 
 main {
-    width: 95%;
-    margin: 64px auto;
-}
-
-div#grid {
-    width: fit-content;
-    margin: 0 auto;
+    width: 75%;
+    margin: 128px auto;
+    display: flex;
+    justify-content: space-evenly;
 }

@@ -1,0 +1,7 @@
+div.panel {
+    width: fit-content;
+    background-color: var(--background-light);
+    padding: 4px;
+    border-radius: 8px;
+    filter: drop-shadow(0 0 10px #121212);
+}

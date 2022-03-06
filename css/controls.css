@@ -28,7 +28,7 @@ button.stop {
     border-radius: 2px;
 }
 
-button.stop:active {
+button:active {
     animation: press_button 200ms;
 }
 
@@ -56,4 +56,16 @@ input.tempo {
     padding: 8px;
     outline: none;
     text-align: center
-};
+}
+
+/* Chrome, Safari, Edge, Opera */
+input.tempo::-webkit-outer-spin-button,
+input.tempo::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input.tempo[type=number] {
+  -moz-appearance: textfield;
+}

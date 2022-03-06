@@ -72,7 +72,3 @@ button.sequencer.cell[data-current="true"] {
 button.sequencer.cell[data-current=true][data-active=true] {
     background-color: white;
 }
-
-div.sequencer {
-    width: fit-content;
-}
