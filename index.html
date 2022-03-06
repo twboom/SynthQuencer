@@ -7,31 +7,40 @@
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 
     <!-- CSS -->
+    <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/pallet.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/bars.css">
     <link rel="stylesheet" href="css/sequencer.css">
     <link rel="stylesheet" href="css/github-link.css">
+    <link rel="stylesheet" href="css/controls.css">
 
     <!-- JS -->
     <script type="module" defer="defer" src="js/SynthQuencer.js"></script>
 </head>
 <body>
     <header id="controls" class="bar">
-        <section id="left">
+        <section class="bar-left">
             <input type="number" name="tempo" id="tempo" min="0" step="1" value="">
         </section>
-        <section id="middle">
-            <button id="toggle">Play/Pause</button>
-            <button id="stop">Stop</button>
+        <section class="bar-middle">
+            <button id="toggle" class="play-pause-toggle"></button>
+            <button id="stop" class="stop"></button>
         </section>
-        <section id="right">
+        <section class="bar-right">
             <a id="github" href="https://github.com/twboom/SynthQuencer">
                 <img id="github-link" src="assets/images/github.svg" alt="GitHub repository">
             </a>
         </section>
     </header>
-    <main id="main"></main>
-    <footer id="information" class="bar"></footer>
+    <main id="main">
+    </main>
+    <footer id="information" class="bar">
+        <section class="bar-left">
+            <p id="track-info">
+                <span id="track-name"></span> | <span id="track-author"></span>
+            </p>
+        </section>
+    </footer>
 </body>
 </html>

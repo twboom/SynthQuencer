@@ -1,5 +1,9 @@
+* {
+    font-family: 'Bebas Neue';
+}
+
 body {
-    background-color: #22222e;
+    background-color: var(--background);
 }
 
 main {

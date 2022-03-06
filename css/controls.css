@@ -1,0 +1,47 @@
+button.play-pause-toggle {
+    border: 0;
+    background: transparent;
+    box-sizing: border-box;
+    width: 0;
+    height: 25px;
+  
+    border-color: transparent transparent transparent white;
+    cursor: pointer;
+  
+    /* Play state */
+    border-style: solid;
+    border-width: 15px 0 15px 25px;
+
+    transition: 100ms border-style ease, 100ms border-width ease;
+}
+
+button.pause {
+    border-style: double;
+    border-width: 0px 0 0px 25px;
+}
+
+button.stop {
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+    border: none;
+    border-radius: 2px;
+}
+
+button.stop:active {
+    animation: press_button 200ms;
+}
+
+@keyframes press_button {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(.9);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}

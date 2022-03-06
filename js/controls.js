@@ -28,11 +28,18 @@ export class Control {
 export class PlayPauseButton extends Control {
     constructor(element) {
         super(element);
-        this.addEventListener('click', this.toggle);
+        this.addEventListener('click', _ => this.toggle());
     };
 
     toggle() {
         project.toggle();
+        if (project.running) {
+            this.element.classList.remove('play');
+            this.element.classList.add('pause');
+        } else {
+            this.element.classList.remove('pause');
+            this.element.classList.add('play');
+        }
     };
 };
 

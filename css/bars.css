@@ -6,14 +6,34 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
-    background-color: var(--);
+    background-color: var(--background-dark);
+    box-shadow: 0 0 16px 0 #00000099;
 }
 
 .bar>section {
+    width: 33.33%;
+    display: flex;
+    align-items: center;
+}
 
+.bar-left {
+    justify-content: left;
+}
+
+.bar-middle {
+    justify-content: center;
+}
+
+.bar-right {
+    justify-content: right;
 }
 
 /* Information (header) */
 header {
     top: 0;
+}
+
+/* Footer */
+footer {
+    bottom: 0;
 }
