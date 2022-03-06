@@ -2,7 +2,7 @@ import { Project } from './project.js';
 import { Envelope, Synthesizer } from './instrument.js';
 import { Sequencer } from './sequencer.js';
 import { SequencerRenderer } from './renderer.js';
-import { PlayButton, StopButton, TempoInput } from './controls.js';
+import { PlayPauseButton, StopButton, TempoInput } from './controls.js';
 
 function init() {
     // Create the Project object
@@ -25,7 +25,7 @@ function start() {
     myRen.render();
     
     // Activate the controls
-    const playButton = new PlayButton(document.getElementById('toggle'));
+    const playButton = new PlayPauseButton(document.getElementById('toggle'));
     const stopButton = new StopButton(document.getElementById('stop'));
     const tempoInput = new TempoInput(document.getElementById('tempo'));
 };

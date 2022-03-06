@@ -25,7 +25,7 @@ export class Control {
 };
 
 // Play/Stop Button
-export class PlayButton extends Control {
+export class PlayPauseButton extends Control {
     constructor(element) {
         super(element);
         this.addEventListener('click', this.toggle);
