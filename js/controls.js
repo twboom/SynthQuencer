@@ -29,7 +29,6 @@ export class PlayButton extends Control {
     constructor(element) {
         super(element);
         this.addEventListener('click', this.toggle);
-        console.log(this.element)
     };
 
     toggle() {
