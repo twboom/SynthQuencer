@@ -103,6 +103,12 @@ export class SequencerRenderer extends Renderer {
                 });
                 break;
 
+            case 'CLEAR_STEP':
+                this.gridContainer.querySelectorAll('[data-current="true"]').forEach(item => {
+                    item.dataset.current = false;
+                });
+                break;
+
         };
 
     };

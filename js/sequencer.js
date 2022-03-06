@@ -137,5 +137,8 @@ export class Sequencer {
             this.pause();
         };
         this.play.step = 0;
+        this.renderers.forEach(renderer => {
+            renderer.update('CLEAR_STEP');
+        })
     };
 }
