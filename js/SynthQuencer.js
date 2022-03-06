@@ -20,7 +20,7 @@ function start() {
     mySeq.attach(mySynth);
     
     // Create the sequencer renderer and render
-    const myRen = new SequencerRenderer(document.getElementById('main'), mySeq);
+    const myRen = new SequencerRenderer(document.getElementById('grid'), mySeq);
     mySeq.attach(myRen);
     myRen.render();
     

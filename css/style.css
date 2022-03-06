@@ -10,3 +10,8 @@ main {
     width: 95%;
     margin: 64px auto;
 }
+
+div#grid {
+    width: fit-content;
+    margin: 0 auto;
+}

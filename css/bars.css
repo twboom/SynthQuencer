@@ -1,7 +1,7 @@
 /* General bar styling */
 .bar {
     display: flex;
-    position: absolute;
+    position: fixed;
     left: 0;
     width: 100%;
     display: flex;
