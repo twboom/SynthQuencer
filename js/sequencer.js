@@ -128,7 +128,7 @@ export class Sequencer {
         );
     };
 
-    stop() {
+    pause() {
         clearInterval(this.interval);
     };
 }

@@ -48,15 +48,15 @@ export class Project {
         this.running = true;
     };
 
-    stop() {
+    pause() {
         this.sequencers.forEach(seq => {
-            seq.stop();
+            seq.pause();
         });
         this.running = false;
     };
 
     toggle() {
-        if (this.running) { this.stop() } else { this.start() };
+        if (this.running) { this.pause() } else { this.start() };
     };
 
 };
