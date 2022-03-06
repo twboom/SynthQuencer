@@ -1,6 +1,7 @@
 import { Renderer } from "./renderer.js";
 import { Instrument, Note } from "./instrument.js";
 import { Sequencer } from "./sequencer.js";
+import { Control } from "./controls.js";
 
 // MIDI note to frequency
 export function noteToFrequency(note, {transpose, detune, tuning}) {
@@ -36,5 +37,6 @@ export function getType(object) {
     if (object instanceof Instrument) { return 'INSTRUMENT' };
     if (object instanceof Note) { return 'NOTE' };
     if (object instanceof Sequencer) { return 'SEQUENCER' };
+    if (object instanceof Control) { return 'CONTROL' }
     
 };

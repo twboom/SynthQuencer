@@ -1,4 +1,5 @@
 import { getType } from './utility.js';
+import { PlayPauseButton } from './controls.js';
 
 // Project class
 export class Project {
@@ -15,6 +16,7 @@ export class Project {
     instruments = []; // Array of intruments
     renderers = []; // Array of renderers
     sequencers = []; // Array of sequencers
+    controls = []; // Array of all controls
 
     running = false; // Boolean for if the project is running
 
@@ -37,6 +39,10 @@ export class Project {
             case 'SEQUENCER':
                 this.sequencers.push(obj);
                 break;
+
+            case 'CONTROL':
+                this.controls.push(obj);
+                break;
         };
 
     };
@@ -46,6 +52,12 @@ export class Project {
             seq.start();
         });
         this.running = true;
+        this.controls.forEach(ctrl => {
+            if (ctrl instanceof PlayPauseButton) {
+                ctrl.element.classList.remove('play');
+                ctrl.element.classList.add('pause');
+            }
+        });
     };
 
     pause() {
@@ -53,6 +65,12 @@ export class Project {
             seq.pause();
         });
         this.running = false;
+        this.controls.forEach(ctrl => {
+            if (ctrl instanceof PlayPauseButton) {
+                ctrl.element.classList.remove('pause');
+                ctrl.element.classList.add('play');
+            }
+        });
     };
 
     stop() {
@@ -60,6 +78,12 @@ export class Project {
             seq.stop();
         });
         this.running = false;
+        this.controls.forEach(ctrl => {
+            if (ctrl instanceof PlayPauseButton) {
+                ctrl.element.classList.remove('pause');
+                ctrl.element.classList.add('play');
+            }
+        });
     };
 
     toggle() {

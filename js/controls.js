@@ -6,6 +6,7 @@ export class Control {
 
     constructor(element) {
         this.element = element;
+        project.attach(this);
     };
 
     addEventListener(event, callback, id) {
@@ -33,13 +34,6 @@ export class PlayPauseButton extends Control {
 
     toggle() {
         project.toggle();
-        if (project.running) {
-            this.element.classList.remove('play');
-            this.element.classList.add('pause');
-        } else {
-            this.element.classList.remove('pause');
-            this.element.classList.add('play');
-        }
     };
 };
 
