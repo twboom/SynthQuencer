@@ -69,7 +69,7 @@ export class TempoInput extends Control {
         evt.preventDefault();
         const deltaT = evt.wheelDeltaY / scrollSpeed;
         const newValue = parseInt(this.element.value) + deltaT;
-        if (newValue < parseInt(this.element.min)) { return };
+        if (newValue < parseInt(this.element.min) || newValue > parseInt(this.element.max)) { return };
         this.element.value = parseInt(this.element.value) + deltaT;
         this.change();
     }

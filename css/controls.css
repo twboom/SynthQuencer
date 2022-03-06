@@ -45,3 +45,15 @@ button.stop:active {
         transform: scale(1);
     }
 }
+
+input.tempo {
+    color: white;
+    background: var(--background);
+    border: none;
+    width: fit-content;
+    font-size: larger;    
+    margin-left: 8px;
+    padding: 8px;
+    outline: none;
+    text-align: center
+};
