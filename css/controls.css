@@ -32,6 +32,65 @@ button:active {
     animation: press_button 200ms;
 }
 
+/* Synthesizer controls */
+div#controls {
+    width: 250px;
+    padding: 16px;
+}
+
+div.control-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.25em;
+}
+
+select {
+    background-color: var(--background);
+    border: none;
+}
+
+input[type=range] {
+    -webkit-appearance: none;
+    width: 50%;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background);
+    border: none;
+    height: .5em;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 1em;
+    height: 1em;
+    border: none;
+    border-radius: 50%;
+    background: var(--purple-bright);
+    cursor: pointer;
+    transition: 200ms background-color ease;
+}
+
+input[type=range]::-webkit-slider-thumb:hover {
+    background-color: var(--purple-dark);
+}
+
+input[type=range]::-moz-range-thumb {
+    -webkit-appearance: none;
+    width: 1em;
+    height: 1em;
+    border: none;
+    border-radius: 50%;
+    background: var(--purple-bright);
+    cursor: pointer;
+    transition: 200ms background-color ease;
+}
+
+input[type=range]::-moz-range-thumb:hover {
+    background-color: var(--purple-dark);
+}
+
 @keyframes press_button {
     0% {
         transform: scale(1);

@@ -35,6 +35,29 @@
         </section>
     </header>
     <main id="main">
+        <div class="panel" id="controls">
+            <div class="control-group">
+                <label for="wave">Wave: </label>
+                <select id="wave" name="wave">
+                    <option value="sine">Sine</option>
+                    <option value="square">Square</option>
+                    <option value="sawtooth">Sawtooth</option>
+                    <option value="triangle">Triangle</option>
+                </select>
+            </div>
+            <div class="control-group">
+                <label for="octave">Octave: <span id="octave-value-display"></span></label>
+                <input type="range" name="octave" id="octave" min="0" max="8" step="1" value="4">
+            </div>
+            <div class="control-group">
+                <label for="transpose">Transpose: <span id="transpose-value-display"></span></label>
+                <input type="range" name="transpose" id="transpose" min="-12" max="12" step="1">
+            </div>
+            <div class="control-group">
+                <label for="detune">Detune: <span id="detune-value-display"></span></label>
+                <input type="range" name="detune" id="detune" min="-100" max="100" step="1">
+            </div>
+        </div>
         <div class="panel" id="grid"></div>
     </main>
 </body>

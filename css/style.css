@@ -1,5 +1,7 @@
 * {
     font-family: 'Bebas Neue';
+    font-size: 20px;
+    color: white;
 }
 
 body {
@@ -10,5 +12,9 @@ main {
     width: 75%;
     margin: 128px auto;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
+}
+
+main > * {
+    margin: 0 16px;
 }
