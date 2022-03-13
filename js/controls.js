@@ -55,16 +55,23 @@ export class TempoInput extends Control {
     constructor(element, scrollSpeed = 120) {
         super(element);
         this.addEventListener('change', _ => this.change());
+        this.addEventListener('dblclick', _ => this.dblclick());
         this.addEventListener('wheel', evt => {
             this.scroll(evt, scrollSpeed);
         });
         this.element.value = project.tempo;
+        this.default = project.tempo;
     };
 
     change() {
         project.tempo = parseInt(this.element.value);
         project.restart();
     };
+
+    dblclick() {
+        this.element.value = this.default;
+        this.change();
+    }
 
     scroll(evt, scrollSpeed) {
         evt.preventDefault();
@@ -83,13 +90,20 @@ export class InstrumentControl extends Control {
     constructor(element, instrument) {
         super(element);
         this.instrument = instrument;
+        this.default = this.element.value;
         this.addEventListener('input', _ => this.change());
+        this.addEventListener('dblclick', _ => this.dblclick());
     };
 
     change() {
         this.instrument.updateProperty(this.element.name, this.element.value);
         this.displays.forEach(display => display.update(this.element.value));
     };
+
+    dblclick() {
+        this.element.value = this.default;
+        this.change();
+    }
 
     attachDisplay(display) {
         this.displays.push(display);
