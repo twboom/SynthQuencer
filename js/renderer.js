@@ -18,6 +18,7 @@ export class SequencerRenderer extends Renderer {
 
     constructor(parent, obj) {
         super('SEQUENCER', parent, obj);
+        this.color = obj.color
     }
 
     dragState = false;
@@ -38,7 +39,7 @@ export class SequencerRenderer extends Renderer {
         gridContainer.classList.add('grid');
         container.appendChild(gridContainer);
 
-        gridContainer.dataset.color = 'purple';
+        gridContainer.dataset.color = this.color;
 
         for (let y = 0; y < size[1]; y++) {
             const line = document.createElement('div');

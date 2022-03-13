@@ -19,6 +19,8 @@ export class Sequencer {
 
     memory = [];
 
+    color = 'purple';
+
     constructor(size, baseNote, instruments, renderers) {
         if (size) {
             if (
