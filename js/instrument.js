@@ -3,6 +3,8 @@ import { noteToFrequency } from './utility.js';
 
 // General instrument class
 export class Instrument {
+    events = {}; // Object to store event callbacks
+
     properties = {
         'transpose': 0,
         'tuning': 440,
@@ -36,6 +38,18 @@ export class Instrument {
         
         // Set the new property value
         this.properties[property] = value;
+
+        // Dispatch event
+        if (this.events[property] !== undefined) {
+            this.events[`${property}-change`].forEach(callback => {
+                callback(value);
+            });
+        }
+    };
+
+    onEvent(event, callback) {
+        if (this.events[event] === undefined) { this.events[event] = []; };
+        this.events[event].push(callback);
     };
 };
 
