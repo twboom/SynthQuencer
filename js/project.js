@@ -17,6 +17,7 @@ export class Project {
     renderers = []; // Array of renderers
     sequencers = []; // Array of sequencers
     controls = []; // Array of all controls
+    displays = []; // Array of all control displays
 
     running = false; // Boolean for if the project is running
 
@@ -42,6 +43,10 @@ export class Project {
 
             case 'CONTROL':
                 this.controls.push(obj);
+                break;
+
+            case 'DISPLAY':
+                this.displays.push(obj);
                 break;
         };
 

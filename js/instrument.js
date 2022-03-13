@@ -5,14 +5,37 @@ import { noteToFrequency } from './utility.js';
 export class Instrument {
     properties = {
         'transpose': 0,
-        'detune': 0,
         'tuning': 440,
         'velocity': 127,
+        'octave': 4,
     };
 
-    constructor(properties) {
+    propertyTypes = {
+        'transpose': 'number',
+        'tuning': 'number',
+        'velocity': 'number',
+        'octave': 'number',
+    }
+
+    constructor(properties, propertyTypes) {
         if (properties !== undefined) { this.properties = {...this.properties, ...properties} };
+        if (propertyTypes !== undefined) { this.propertyTypes = {...this.propertyTypes, ...propertyTypes} };
         project.attach(this);
+    };
+
+    updateProperty(property, value) {
+        // Parse value if
+        if (this.propertyTypes[property] === 'number') {
+            value = parseFloat(value);
+        };
+
+        // Check if the property is correct type
+        if (typeof value !== this.propertyTypes[property]) {
+            throw new Error(`Invalid propertytype. Wanted ${this.propertyTypes[property]}, given ${typeof property}`);
+        };
+        
+        // Set the new property value
+        this.properties[property] = value;
     };
 };
 
@@ -21,7 +44,7 @@ export class Synthesizer extends Instrument {
 
     constructor(properties, env) {
 
-        super({wave: 'sine'})
+        super({wave: 'sine', detune: 0}, { wave: 'string', detune: 'number' });
 
         if (!(env instanceof Envelope)) { throw new Error('Invalid or no envelope provided') };
         this.env = env;

@@ -2,7 +2,7 @@ import { Project } from './project.js';
 import { Envelope, Synthesizer } from './instrument.js';
 import { Sequencer } from './sequencer.js';
 import { SequencerRenderer } from './renderer.js';
-import { PlayPauseButton, StopButton, TempoInput } from './controls.js';
+import { InstrumentControl, InstrumentDisplay, PlayPauseButton, StopButton, TempoInput } from './controls.js';
 
 function init() {
     // Create the Project object
@@ -28,6 +28,17 @@ function start() {
     const playButton = new PlayPauseButton(document.getElementById('toggle'));
     const stopButton = new StopButton(document.getElementById('stop'));
     const tempoInput = new TempoInput(document.getElementById('tempo'));
+
+    // Sequencer/Synth controls
+    const waveControl = new InstrumentControl(document.getElementById('wave'), mySynth);
+    const octaveControl = new InstrumentControl(document.getElementById('octave'), mySynth);
+    octaveControl.attachDisplay(new InstrumentDisplay('octave'));
+    const transposeControl = new InstrumentControl(document.getElementById('transpose'), mySynth);
+    transposeControl.attachDisplay(new InstrumentDisplay('transpose'));
+    const detuneControl = new InstrumentControl(document.getElementById('detune'), mySynth);
+    detuneControl.attachDisplay(new InstrumentDisplay('detune'));
+
+    console.log(project)
 };
 
 // Create project and export
