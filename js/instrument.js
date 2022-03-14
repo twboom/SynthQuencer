@@ -72,6 +72,7 @@ export class Synthesizer extends Instrument {
         const env = this.env;
 
         const sustain = env.sustain * (velocity / 127);
+        const frequency = noteToFrequency(note, properties);
 
         // Create a new oscillator
         const intf = project.interface;
@@ -79,7 +80,7 @@ export class Synthesizer extends Instrument {
 
         // Set the wave type and frequency
         osc.type = properties.wave;
-        osc.frequency.value = noteToFrequency(note, properties);
+        osc.frequency.value = frequency;
 
         // Create a gain node
         const gain = intf.createGain();
