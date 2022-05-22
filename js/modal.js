@@ -1,49 +1,51 @@
 // General modal class
 class Modal {
-
-    constructor(bodyContent, headerContent, closeButton) {
-
+    constructor(content='<p>Lorum ipsum</p>', title='myModal', buttons=[], hidden) {
         this.content = content;
-        this.closeButton = closeButton;
-
-        this.outerContainer = document.createElement('div');
-        this.outerContainer.classList.add('modal-outer-container');
-
-        const container = document.createElement('div');
-        container.classList.add('modal-container');
-
-        const header = document.createElement('div');
-        header.classList.add('modal-header');
-
-        const body = document.createElement('div');
-        body.classList.add('modal-body');
-
-        const footer = document.createElement('div');
-        footer.classList.add('modal-footer');
+        this.title = title;
+        this.buttons = buttons;
+        this.html = this.create(hidden);
     };
 
-    // Close modal
-    close() {
+    create(hidden) {
+        const outerContainer = document.createElement('div');
+        outerContainer.classList.add('modal outer-container');
+        if (hidden) { outerContainer.classList.add('hidden') };
 
-        this.outerContainer.remove();
+        const modal = document.createElement('div');
+        outerContainer.appendChild(modal);
+        modal.classList.add('modal main-container');
 
+        const title = document.createElement('h1');
+        modal.appendChild(title);
+        title.classList.add('modal title');
+        title.innerHTML = this.title;
+
+        const content = document.createElement('div');
+        modal.appendChild(content);
+        content.classList.add('modal content');
+        content.innerHTML = this.content;
+
+        const buttonContainer = document.createElement('div');
+        modal.appendChild(buttonContainer);
+        buttonContainer.classList.add('modal button-container');
+        this.buttons.forEach(button => {
+            buttonContainer.appendChild(button);
+        });
+
+        return outerContainer
+    };
+
+    show() {
+        this.html.classList.remove('hidden');
+    }
+
+    hide() {
+        this.html.classList.add('hidden');
+    };
+
+    delete() {
+        this.html.remove();
     };
 
 };
-
-// Confirmation modal class
-class ConfirmationModal extends Modal {
-
-    constructor(message, callback) {
-
-        const content = document.createElement('div');
-        
-        const messageElement = document.createElement('p');
-        messageElement.innerText = message;
-        content.appendChild(messageElement);
-
-        super(content, null, false);
-
-    }
-
-}

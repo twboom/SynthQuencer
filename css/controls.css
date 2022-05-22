@@ -91,6 +91,19 @@ input[type=range]::-moz-range-thumb:hover {
     background-color: var(--purple-dark);
 }
 
+div.control-button {
+    text-align: center;
+}
+
+button.control-button {
+    border: none;
+    padding: 8px;
+    background-color: var(--background);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 200ms background-color ease;
+}
+
 @keyframes press_button {
     0% {
         transform: scale(1);

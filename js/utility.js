@@ -20,14 +20,13 @@ export function noteToFrequency(note, {transpose, detune, tuning, octave}) {
 
     if (detune) {
         const fullDetune = detune > 0 ? 1 : -1;
-        const refNote = Math.pow(2, note + fullDetune / 12) * tuning;
-        console.log(frequency, refNote)
-        const freqDiff = refNote - frequency;
+        const refNote = note + fullDetune;
+        const refFreq = Math.pow(2, refNote / 12) * tuning;
+        const freqDiff = refFreq - frequency;
         const cent = (freqDiff / 100) * fullDetune;
         frequency += detune * cent;
     }
 
-    console.log(frequency)
     
     return frequency;
 };

@@ -104,7 +104,6 @@ export class Sequencer {
             line.forEach(note => {
                 if (note.active) {
                     inst.play(note);
-                    console.log('playing', note.note)
                 }
             });
         })
