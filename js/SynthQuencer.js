@@ -38,6 +38,9 @@ function start() {
     const detuneControl = new InstrumentControl(document.getElementById('detune'), mySynth);
     detuneControl.attachDisplay(new InstrumentDisplay('detune'));
 
+    // Update the synth to match the options
+    mySynth.updateProperty('wave', waveControl.element.value)
+
     console.log(project)
 };
 
