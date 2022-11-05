@@ -10,10 +10,10 @@ export class Control {
         project.attach(this);
     };
 
-    addEventListener(event, callback, id) {
+    addEventListener(event, callback, id, options) {
         if (this.actions[event] === undefined) { this.actions[event] = []; };
         this.actions[event].push({callback, id});
-        this.element.addEventListener(event, callback);
+        this.element.addEventListener(event, callback, options);
     };
 
     removeEventListener(id) {
@@ -58,7 +58,7 @@ export class TempoInput extends Control {
         this.addEventListener('dblclick', _ => this.dblclick());
         this.addEventListener('wheel', evt => {
             this.scroll(evt, scrollSpeed);
-        });
+        }, undefined, { passive: true });
         this.element.value = project.tempo;
         this.default = project.tempo;
     };

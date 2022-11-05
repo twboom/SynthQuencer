@@ -3,6 +3,7 @@ import { Envelope, Synthesizer } from './instrument.js';
 import { Sequencer } from './sequencer.js';
 import { SequencerRenderer } from './renderer.js';
 import { InstrumentControl, InstrumentDisplay, PlayPauseButton, StopButton, TempoInput } from './controls.js';
+import { Modal } from './modal.js'
 
 function init() {
     // Create the Project object
