@@ -1,7 +1,7 @@
 * {
     font-family: 'Bebas Neue';
     font-size: 20px;
-    color: white;
+    color: var(--text);
 }
 
 body {

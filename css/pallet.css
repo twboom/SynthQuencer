@@ -1,8 +1,9 @@
 :root {
 
-    --background: #22222e;
-    --background-light: #323242;
-    --background-dark: #1f1f24;
+    --background: #fefae0;
+    --background-light: #edede9;
+    --background-dark: #f5ebe0;
+    --text: black;
     
     --purple-bright: #9c1cf1;
     --purple-dark: #431761;
@@ -15,5 +16,16 @@
 
     --green-bright: #1eeb25;
     --green-dark: #106e14;
+
+}
+
+@media (prefers-color-scheme: dark) {
+
+    :root {
+        --background: #22222e;
+        --background-light: #323242;
+        --background-dark: #1f1f24;
+        --text: white;
+    }
 
 }
