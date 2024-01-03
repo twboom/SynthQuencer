@@ -1,5 +1,5 @@
 import { project } from './SynthQuencer.js';
-import { noteToFrequency } from './utility.js';
+import { noteToFrequency, generateID } from './utility.js';
 
 // General instrument class
 export class Instrument {
@@ -23,9 +23,13 @@ export class Instrument {
         if (properties !== undefined) { this.properties = {...this.properties, ...properties} };
         if (propertyTypes !== undefined) { this.propertyTypes = {...this.propertyTypes, ...propertyTypes} };
         project.attach(this);
+        this.id = generateID();
     };
 
     updateProperty(property, value) {
+        // Correct for ID in property name
+        property = property.split('-')[property.split('-').length-1]
+
         // Parse value if
         if (this.propertyTypes[property] === 'number') {
             value = parseFloat(value);

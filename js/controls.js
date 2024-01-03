@@ -126,8 +126,7 @@ export class Display {
 
 // Instrument control display
 export class InstrumentDisplay extends Display {
-    constructor(name) {
-        const element = document.getElementById(name + '-value-display');
+    constructor(element) {
         super(element);
     };
 }

@@ -55,3 +55,16 @@ export function getType(object) {
     if (object instanceof Display) { return 'DISPLAY' };
     
 };
+
+// Generates a unique ID for everything
+let LAST_USED_ID = 0
+
+export function generateID() {
+    LAST_USED_ID++;
+    return LAST_USED_ID;
+};
+
+// Capitalize first letter
+export function capitalize(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+};

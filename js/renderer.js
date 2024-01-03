@@ -1,4 +1,5 @@
 import { project } from './SynthQuencer.js'
+import { capitalize } from './utility.js';
 
 // General renderer class
 export class Renderer {
@@ -114,6 +115,115 @@ export class SequencerRenderer extends Renderer {
 
     };
     
+};
+
+export class ControlRenderer extends Renderer {
+
+    constructor(parent, obj, parameter, displaySuffix) {
+        super('CONTROL', parent, obj);
+        this.parameter = parameter;
+        this.displaySuffix = displaySuffix;
+        this.inputContainer = document.createElement('div');
+    };
+
+    render() {
+        const container = document.createElement('div');
+        container.classList.add('control-group');
+
+        // Label
+        const label = document.createElement('label');
+        label.setAttribute('for', `${this.obj.id}-${this.parameter}`);
+        label.innerText = capitalize(this.parameter) + ': ';
+
+        const display = document.createElement('span');
+        display.setAttribute('id', `${this.obj.id}-${this.parameter}-value-display`);
+        label.appendChild(display);
+
+        if (this.displaySuffix) {
+            label.innerHTML += ' ' + this.displaySuffix;
+        };
+
+        container.appendChild(label)
+
+        container.appendChild(this.inputContainer);
+
+        this.display = display;
+
+        this.parent.appendChild(container);
+
+    };
+
+};
+
+export class InputControlRenderer extends Renderer {
+    
+    constructor(parent, obj, parameter, min, max, step, value) {
+        super('CONTROL-INPUT', parent, obj);
+        this.parameter = parameter;
+        this.min = min;
+        this.max = max;
+        this.step = step;
+        this.value = value;
+    };
+
+    render() {
+        const input = document.createElement('input');
+        input.setAttribute('type', 'range');
+        input.setAttribute('name', `${this.obj.id}-${this.parameter}`);
+        input.setAttribute('id', `${this.obj.id}-${this.parameter}`);
+        input.setAttribute('min', this.min);
+        input.setAttribute('max', this.max);
+        input.setAttribute('step', this.step);
+        input.setAttribute('value', this.value);
+
+        this.element = input;
+
+        this.parent.appendChild(input)
+    };
+
+};
+
+export class SelectControlRenderer extends Renderer {
+    
+    constructor(parent, obj, parameter, options) {
+        super('CONTROL-INPUT', parent, obj);
+        this.parameter = parameter;
+        this.options = options;
+        
+    };
+
+    render() {
+        const select = document.createElement('select');
+        select.setAttribute('name', `${this.obj.id}-${this.parameter}`);
+        select.setAttribute('id', `${this.obj.id}-${this.parameter}`);
+
+        this.options.forEach(option => {
+            const el = document.createElement('option');
+            el.setAttribute('value', option.value);
+            el.innerText = option.name;
+            select.appendChild(el);
+        });
+        
+        this.element = select;
+
+        this.parent.appendChild(select);
+    };
+
+};
+
+export class WaveSelectControlRenderer extends SelectControlRenderer {
+
+    constructor(parent, obj) {
+        const options = [
+            {'name': 'Sine', 'value': 'sine'},
+            {'name': 'Square', 'value': 'square'},
+            {'name': 'Sawtooth', 'value': 'sawtooth'},
+            {'name': 'Triangle', 'value': 'triangle'},
+        ]
+
+        super(parent, obj, 'wave', options);
+    };
+
 };
 
 export class EnvelopeRenderer extends Renderer {
